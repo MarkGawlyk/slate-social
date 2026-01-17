@@ -19,4 +19,4 @@ Host a weekly session where staff help members work on specific "project" boulde
 
 ## Measuring Success
 
-Don't just count heads. Look at repeat visits in the weeks following an event. Use Slate's analytics to track if event attendees are converting to members at a higher rate.
+Don't just count heads. Look at repeat visits in the weeks following an event. Use your analytics tools (and Slate Social when available) to track if event attendees are converting to members at a higher rate.
