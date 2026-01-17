@@ -1,7 +1,7 @@
 ---
 title: 'Building Community Through Events'
 description: 'How to host events that turn casual visitors into loyal members.'
-pubDate: '2026-01-02'
+pubDate: '2025-01-02'
 author: 'Mark Gawlyk'
 authorImage: '../../assets/blog/mg.png'
 heroImage: '../../assets/blog/events-crowd.png'
