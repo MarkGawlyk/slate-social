@@ -255,7 +255,7 @@ const posts = (await getCollection('blog'))
 
 				form.reset();
 				form.querySelectorAll('.invalid').forEach((el) => el.classList.remove('invalid'));
-				status.textContent = 'Thanks for reaching out. We will email you within one business day.';
+				status.textContent = "Thanks for reaching out. We'll be in touch soon.";
 				status.style.color = 'var(--success)';
 			});
 		}
@@ -559,7 +559,7 @@ const posts = (await getCollection('blog'))
 			font-size: 0.95rem;
 		}
 
-		.blog h3 {
+		.blog-card h3 {
 			margin: 0.25rem 0;
 		}
 
