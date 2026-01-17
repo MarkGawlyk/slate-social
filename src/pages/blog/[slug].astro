@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 
+const BLOG_TITLE = 'Slate Social Blog';
+
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	return posts.map((post) => ({
@@ -15,7 +17,7 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<BaseLayout title={`${post.data.title} | Slate Social Blog`} description={post.data.description}>
+<BaseLayout title={`${post.data.title} | ${BLOG_TITLE}`} description={post.data.description}>
 	<header class="site-header container">
 		<a class="logo" href="/">Slate Social</a>
 		<a class="pill" href="/blog">All posts</a>
@@ -23,7 +25,7 @@ const { Content } = await post.render();
 
 	<main>
 		<section class="container article">
-			<p class="eyebrow">Slate Social Blog</p>
+			<p class="eyebrow">{BLOG_TITLE}</p>
 			<h1>{post.data.title}</h1>
 			<div class="meta">
 				<Image src={post.data.authorImage} alt={post.data.author} class="avatar" widths={[64]} />

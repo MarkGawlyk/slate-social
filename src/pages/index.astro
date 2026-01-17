@@ -255,7 +255,7 @@ const posts = (await getCollection('blog'))
 
 				form.reset();
 				form.querySelectorAll('.invalid').forEach((el) => el.classList.remove('invalid'));
-				status.textContent = "Thanks for reaching out. We'll be in touch soon.";
+				status.textContent = "Thanks for reaching out. This preview doesn't send data, but we'd love to stay in touch.";
 				status.style.color = 'var(--success)';
 			});
 		}

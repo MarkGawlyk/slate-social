@@ -3,12 +3,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 
+const BLOG_TITLE = 'Slate Social Blog';
+
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
-<BaseLayout title="Slate Social Blog" description="Stories and playbooks for building stronger climbing gym communities.">
+<BaseLayout title={BLOG_TITLE} description="Stories and playbooks for building stronger climbing gym communities.">
 	<header class="site-header container">
 		<a class="logo" href="/">Slate Social</a>
 		<a class="pill" href="/#register">Register interest</a>
@@ -16,7 +18,7 @@ const posts = (await getCollection('blog')).sort(
 
 	<main>
 		<section class="container">
-			<p class="eyebrow">Slate Social Blog</p>
+			<p class="eyebrow">{BLOG_TITLE}</p>
 			<h1>Ideas for builders of climbing communities</h1>
 			<p class="lede">
 				Field notes, playbooks, and inspiration from the slate team on running events, sparking
