@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://slatebook.com/sitemap.xml
+Sitemap: https://slatesocial.com/sitemap.xml
