@@ -9,14 +9,12 @@ permissions:
   contents: read
 
 jobs:
-  build-and-deploy:
-    name: Build and Deploy
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
+      
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -29,6 +27,24 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -36,8 +52,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Sync to S3
-        # --delete removes files in bucket that are not in dist/
+      - name: Deploy to S3
+        # Ensure AWS_S3_BUCKET is just the name "dev.slate-social.com"
         run: |
           aws s3 sync dist/ s3://${{ secrets.AWS_S3_BUCKET }} --delete
 
