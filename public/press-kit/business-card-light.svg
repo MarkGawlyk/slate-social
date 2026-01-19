@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1011 638" width="1011" height="638">
+  <!-- Light version background -->
+  <rect width="1011" height="638" fill="#ffffff"/>
+  
+  <!-- Grid pattern (same as hero section) -->
+  <defs>
+    <pattern id="grid-pattern-light" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#18181b" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="4 6" />
+    </pattern>
+  </defs>
+  <rect width="1011" height="638" fill="url(#grid-pattern-light)" />
+  
+  <!-- SLATE+ logo in bottom right -->
+  <g transform="translate(721, 468)">
+    <!-- SLATE text -->
+    <text x="0" y="0" font-family="Inter, system-ui, sans-serif" font-weight="900" font-size="80" fill="#18181b" letter-spacing="-0.05em">SLATE</text>
+    
+    <!-- + symbol smaller and positioned to top right -->
+    <text x="245" y="-15" font-family="Inter, system-ui, sans-serif" font-weight="900" font-size="48" fill="#18181b">+</text>
+  </g>
+</svg>

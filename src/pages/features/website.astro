@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeatureHeader from '../../components/FeatureHeader.astro';
+
+const features = [
+    { title: "Online Waiver Signing", description: "Streamline the intake process before they even arrive." },
+    { title: "Event Calendars", description: "Keep the community up to date with auto-synced schedules." },
+    { title: "Member Portal", description: "Web access for those who prefer desktop management." }
+];
+---
+
+<Layout title="Website Portal - Slate Book">
+  <main class="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
+    <FeatureHeader
+        title="The Content Website"
+        description="More than just a landing page. A fully integrated web portal that serves as the digital front door to your gym."
+        featuresTitle="Key Capabilities"
+        features={features}
+        icon="💻"
+    />
+  </main>
+</Layout>

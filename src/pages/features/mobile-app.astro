@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeatureHeader from '../../components/FeatureHeader.astro';
+
+const features = [
+    { title: "Digital Membership Card", description: "QR code entry for frictionless check-ins." },
+    { title: "Class Booking", description: "Easy scheduling for yoga, clinics, and instruction." },
+    { title: "Subscription Management", description: "Pause, upgrade, or update payment details instantly." }
+];
+---
+
+<Layout title="Mobile App - Slate Book">
+  <main class="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
+    <FeatureHeader 
+        title="The Mobile App"
+        description="Give your members the power to manage their climbing journey right from their pocket. A seamless, native experience that keeps them engaged."
+        featuresTitle="Key Features"
+        features={features}
+        icon="📱"
+    />
+  </main>
+</Layout>

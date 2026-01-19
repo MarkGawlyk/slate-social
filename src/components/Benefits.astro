@@ -1,0 +1,30 @@
+---
+---
+<section class="py-24 border-t border-zinc-200 dark:border-zinc-800 fade-in">
+  <div class="container px-4 md:px-6 max-w-5xl mx-auto">
+    <div class="grid gap-12 lg:grid-cols-2 items-center">
+      <div class="space-y-4">
+        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl">Why Use SLATE?</h2>
+        <p class="text-zinc-500 dark:text-zinc-400">
+          We focus on the details so you can focus on the climbing.
+        </p>
+      </div>
+      <div class="grid gap-6">
+        {[
+          { title: "Save Time", desc: "Automate repetitive tasks and focus on your community." },
+          { title: "Reduce Costs", desc: "Cut administrative overhead and streamline management." },
+          { title: "Grow Faster", desc: "Data-driven insights help you make better decisions." },
+          { title: "Happy Members", desc: "Provide a modern, seamless experience." }
+        ].map(benefit => (
+          <div class="flex items-start gap-4">
+            <div class="mt-1 h-2 w-2 rounded-full bg-zinc-900 dark:bg-zinc-50" />
+            <div>
+              <h3 class="font-bold leading-none">{benefit.title}</h3>
+              <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">{benefit.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

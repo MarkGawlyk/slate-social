@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeatureHeader from '../../components/FeatureHeader.astro';
+
+const features = [
+    { title: "Live Analytics", description: "Revenue, occupancy, and retention metrics in real-time." },
+    { title: "Staff Scheduling", description: "Manage shifts, tasks, and payroll easily." },
+    { title: "Route Setting Management", description: "Track grade distribution and setting schedules." }
+];
+---
+
+<Layout title="Staff Dashboard - Slate Book">
+  <main class="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
+    <FeatureHeader
+        title="Backend Dashboard"
+        description="The command center for your business. Powerful analytics, staff management, and operational tools in one place."
+        featuresTitle="Operational Control"
+        features={features}
+        icon="📊"
+    />
+  </main>
+</Layout>

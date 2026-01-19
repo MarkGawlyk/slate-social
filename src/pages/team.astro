@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import mgImg from '../assets/team/mg.jpg';
+import efImg from '../assets/team/ef.jpg';
+
+const founders = [
+    {
+        name: "Mark Gawlyk",
+        role: "Co-Founder",
+        image: mgImg,
+        quote: "We built Slate not just to manage gyms, but to empower the communities that grow within them.",
+        bio: "With a background in software engineering and a passion for climbing, Mark saw the need for a modern, intuitive solution in the gym management space. He focuses on the technical architecture and user experience of Slate."
+    },
+    {
+        name: "Efraim Fatrle",
+        role: "Co-Founder",
+        image: efImg,
+        quote: "Technology should be invisible—it should just work so gym owners can focus on what matters most: their climbers.",
+        bio: "Efraim brings deep industry insight and business strategy to the team. His vision drives Slate's mission to simplify complex operations into seamless workflows for gym owners worldwide."
+    }
+];
+---
+
+<Layout title="Team - Slate Book">
+    <main class="pt-32 pb-24 px-4 md:px-6">
+        <div class="container max-w-6xl mx-auto space-y-24">
+            
+            <!-- Header -->
+            <div class="text-center space-y-6 max-w-3xl mx-auto">
+                <p class="text-sm font-mono uppercase tracking-widest text-zinc-500">The Founders</p>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tighter">Building the Future of Climbing Management</h1>
+                <p class="text-lg text-zinc-600 dark:text-zinc-400">
+                    Slate wasn't born in a boardroom. It started on the mats, between sends, out of a desire to make the climbing experience better for everyone.
+                </p>
+            </div>
+
+            <!-- Founders Grid -->
+            <div class="grid md:grid-cols-2 gap-12 md:gap-24">
+                {founders.map((founder) => (
+                    <div class="space-y-8 group">
+                        <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-900">
+                            <Image 
+                                src={founder.image} 
+                                alt={founder.name}
+                                class="object-cover w-full h-full grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                                width={600}
+                                height={800}
+                            />
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-end border-b border-zinc-200 dark:border-zinc-800 pb-4">
+                                <div>
+                                    <h2 class="text-2xl font-bold">{founder.name}</h2>
+                                    <p class="text-zinc-500">{founder.role}</p>
+                                </div>
+                            </div>
+                            <blockquote class="text-xl font-medium italic text-zinc-800 dark:text-zinc-200">
+                                "{founder.quote}"
+                            </blockquote>
+                            <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                                {founder.bio}
+                            </p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Brand Story -->
+            <div class="max-w-3xl mx-auto space-y-8 border-t border-zinc-200 dark:border-zinc-800 pt-24">
+                <h2 class="text-3xl font-bold">Our Story</h2>
+                <div class="prose dark:prose-invert prose-lg text-zinc-600 dark:text-zinc-400">
+                    <p>
+                        We noticed that while climbing has exploded in popularity, the software powering the gyms hasn't kept pace. Existing solutions were clunky, outdated, and often frustrated the very people they were meant to help.
+                    </p>
+                    <p>
+                        We combined our love for the sport with our expertise in building modern software products. The result is Slate—a platform that respects the unique culture of climbing gyms while providing the robust, enterprise-grade tools needed to run a successful business.
+                    </p>
+                </div>
+                
+                 <div class="pt-8 text-center">
+                    <a href="/careers" class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black rounded-lg font-medium hover:opacity-90 transition-opacity">
+                        Want to join us? View Careers 
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</Layout>

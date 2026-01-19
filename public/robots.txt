@@ -1,0 +1,5 @@
+# Allow all search engines
+User-agent: *
+Allow: /
+
+Sitemap: https://slatebook.com/sitemap.xml

@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Press Kit - Slate Book">
+    <main class="pt-32 pb-24 px-4 md:px-6">
+        <div class="container max-w-6xl mx-auto space-y-24">
+            
+            <!-- Header -->
+            <div class="text-center space-y-6 max-w-3xl mx-auto">
+                <p class="text-sm font-mono uppercase tracking-widest text-zinc-500">Brand Assets</p>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tighter">Press Kit</h1>
+                <p class="text-lg text-zinc-600 dark:text-zinc-400">
+                    Download our brand assets for use in presentations, media, and promotional materials.
+                </p>
+            </div>
+
+            <!-- Business Cards Section -->
+            <div class="space-y-12">
+                <div class="border-b border-zinc-200 dark:border-zinc-800 pb-6">
+                    <h2 class="text-3xl font-bold">Business Cards</h2>
+                    <p class="text-zinc-600 dark:text-zinc-400 mt-2">
+                        Credit card sized (85.6mm × 53.98mm) business card designs featuring the SLATE+ logo with our signature grid pattern.
+                    </p>
+                </div>
+
+                <!-- Cards Grid -->
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Light Card -->
+                    <div class="space-y-6 group">
+                        <div class="relative aspect-[1011/638] overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-800 transition-all duration-300 group-hover:border-zinc-400 dark:group-hover:border-zinc-600">
+                            <img 
+                                src="/press-kit/business-card-light.svg" 
+                                alt="Slate Business Card - Light Version"
+                                class="object-cover w-full h-full"
+                            />
+                        </div>
+                        <div class="space-y-3">
+                            <h3 class="text-xl font-bold">Light Card</h3>
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                                Clean white background with dark text and grid pattern.
+                            </p>
+                            <a 
+                                href="/press-kit/business-card-light.svg" 
+                                download="slate-business-card-light.svg"
+                                class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black rounded-lg font-medium hover:opacity-90 transition-opacity"
+                            >
+                                Download SVG
+                                <span>↓</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Dark Card -->
+                    <div class="space-y-6 group">
+                        <div class="relative aspect-[1011/638] overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-800 transition-all duration-300 group-hover:border-zinc-400 dark:group-hover:border-zinc-600">
+                            <img 
+                                src="/press-kit/business-card-dark.svg" 
+                                alt="Slate Business Card - Dark Version"
+                                class="object-cover w-full h-full"
+                            />
+                        </div>
+                        <div class="space-y-3">
+                            <h3 class="text-xl font-bold">Dark Card</h3>
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                                Black background with light text and grid pattern.
+                            </p>
+                            <a 
+                                href="/press-kit/business-card-dark.svg" 
+                                download="slate-business-card-dark.svg"
+                                class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black rounded-lg font-medium hover:opacity-90 transition-opacity"
+                            >
+                                Download SVG
+                                <span>↓</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Usage Guidelines -->
+                <div class="mt-16 p-8 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
+                    <h3 class="text-xl font-bold mb-4">Usage Guidelines</h3>
+                    <ul class="space-y-2 text-zinc-600 dark:text-zinc-400">
+                        <li>• Business cards are sized at 85.6mm × 53.98mm (standard credit card size)</li>
+                        <li>• SVG format ensures perfect quality at any print size</li>
+                        <li>• Maintain the grid pattern and SLATE+ logo positioning</li>
+                        <li>• Do not alter colors or modify the logo design</li>
+                        <li>• For print production, export at 300 DPI or higher</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</Layout>

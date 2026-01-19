@@ -1,15 +1,40 @@
 {
-  "name": "slate-social",
+  "name": "slate-book-site",
+  "version": "1.0.0",
+  "description": "Welcome to the Slate Book landing page repository! This is the public-facing website for Slate Book, a comprehensive management system designed specifically for bouldering gyms.",
   "type": "module",
-  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest --passWithNoTests",
+    "deploy:staging": "git tag -f staging && git push origin staging --force",
+    "deploy:prod": "git tag -f prod && git push origin prod --force",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "bouldering",
+    "gym",
+    "management",
+    "astro"
+  ],
+  "author": "Slate Book Team",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "astro": "^5.16.9",
+    "happy-dom": "^20.1.0",
+    "husky": "^9.1.7",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.17"
   },
   "dependencies": {
-    "astro": "^4.16.18"
+    "@astrojs/tailwind": "^6.0.2",
+    "@fontsource/inter": "^5.2.8",
+    "@tailwindcss/typography": "^0.5.19",
+    "lucide-astro": "^0.556.0",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^3.4.19"
   }
 }

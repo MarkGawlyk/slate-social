@@ -1,0 +1,337 @@
+---
+---
+<section id="pricing" class="py-24 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 fade-in">
+  <div class="container px-4 md:px-6 max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Transparent Pricing</h2>
+      <p class="mt-4 text-zinc-500 dark:text-zinc-400">Simple, predictable costs that scale with your gym.</p>
+    </div>
+
+    <div class="space-y-12">
+        <!-- Plan Selection -->
+        <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+            <!-- Lite Plan -->
+            <button id="plan-lite" class="plan-card group relative p-6 md:p-8 text-left border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black rounded-2xl transition-all hover:border-zinc-400 dark:hover:border-zinc-600 data-[selected=true]:border-black dark:data-[selected=true]:border-white data-[selected=true]:ring-1 data-[selected=true]:ring-black dark:data-[selected=true]:ring-white">
+                <div class="flex justify-between items-start mb-2 md:mb-4">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold">SLATE Lite</h3>
+                        <p class="text-xs md:text-base text-zinc-500 dark:text-zinc-400">Essential gym management.</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="block text-xl md:text-2xl font-bold">£100</span>
+                        <span class="text-[10px] md:text-xs text-zinc-500 uppercase">/ Month</span>
+                    </div>
+                </div>
+                <ul class="space-y-2 md:space-y-3 text-xs md:text-sm text-zinc-600 dark:text-zinc-300 mb-2 md:mb-6 leading-tigher">
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 1.5% Membership Fee</li>
+                    <li class="flex items-center gap-2 md:hidden"><span class="text-green-500">✓</span> Mon-Fri Support</li>
+                    <li class="hidden md:flex items-center gap-2"><span class="text-green-500">✓</span> Mon-Fri 48hr Response Support</li>
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Up to 350 Members</li>
+                </ul>
+            </button>
+
+            <!-- Pro Plan -->
+            <button id="plan-pro" class="plan-card group relative p-6 md:p-8 text-left border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black rounded-2xl transition-all hover:border-zinc-400 dark:hover:border-zinc-600 data-[selected=true]:border-black dark:data-[selected=true]:border-white data-[selected=true]:ring-1 data-[selected=true]:ring-black dark:data-[selected=true]:ring-white" data-selected="true">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-black dark:bg-white text-white dark:text-black text-[10px] md:text-xs font-bold uppercase tracking-wider rounded-full whitespace-nowrap">
+                    Recommended
+                </div>
+                <div class="flex justify-between items-start mb-2 md:mb-4">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold">SLATE Pro</h3>
+                        <p class="text-xs md:text-base text-zinc-500 dark:text-zinc-400">For scaling gyms.</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="block text-xl md:text-2xl font-bold">£250</span>
+                        <span class="text-[10px] md:text-xs text-zinc-500 uppercase">/ Month</span>
+                    </div>
+                </div>
+                <ul class="space-y-2 md:space-y-3 text-xs md:text-sm text-zinc-600 dark:text-zinc-300 mb-2 md:mb-6">
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 1% Membership Fee</li>
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 24/7 Priority Support</li>
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Unlimited Members</li>
+                    <li class="hidden md:flex items-center gap-2"><span class="text-green-500">✓</span> Unlimited Locations</li>
+                     <li class="md:hidden flex items-center gap-2"><span class="text-green-500">✓</span> Unlimited Sites</li>
+                </ul>
+            </button>
+        </div>
+
+        <!-- Calculator Inputs -->
+        <h3 class="text-xl md:text-2xl font-bold text-center">Calculate Your Savings</h3>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 text-center -mt-8 mb-6 hidden md:block">Adjust the sliders to see how much you could save with SLATE compared to your current provider.</p>
+        
+        <div class="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4 md:p-12 shadow-sm">
+            <div class="grid lg:grid-cols-3 gap-6 lg:gap-12">
+                
+                <!-- Subscriptions Column -->
+                <div class="space-y-6">
+                    <h4 class="font-bold text-lg border-b border-zinc-200 dark:border-zinc-800 pb-2">Subscriptions</h4>
+                    
+                    <div class="space-y-3 md:space-y-4">
+                        <div class="grid grid-cols-[1fr,60px,60px] md:grid-cols-[1fr,80px,80px] gap-2 items-end">
+                            <span class="text-[10px] md:text-xs text-zinc-400 font-mono uppercase">Type</span>
+                            <span class="text-[10px] md:text-xs text-zinc-400 font-mono uppercase text-center">Members</span>
+                            <span class="text-[10px] md:text-xs text-zinc-400 font-mono uppercase text-center">Price(£)</span>
+                        </div>
+
+                        <!-- Weekly -->
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium">Weekly</label>
+                            <div class="grid grid-cols-[1fr,auto] gap-2">
+                                <input type="number" min="0" value="0" data-type="weekly-count" class="calc-input w-full p-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-sm" placeholder="Vol" />
+                                <input type="number" min="0" value="15" data-type="weekly-price" class="calc-input w-20 p-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-sm" placeholder="£" />
+                            </div>
+                            <input type="range" min="0" max="500" value="0" data-type="weekly-count-range" class="w-full h-2 bg-zinc-200 rounded-lg appearance-none cursor-pointer dark:bg-zinc-700 accent-black dark:accent-white" />
+                        </div>
+                        
+                        <!-- Monthly -->
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium">Monthly</label>
+                            <div class="grid grid-cols-[1fr,auto] gap-2">
+                                <input type="number" min="0" value="150" data-type="monthly-count" class="calc-input w-full p-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-sm" placeholder="Vol" />
+                                <input type="number" min="0" value="50" data-type="monthly-price" class="calc-input w-20 p-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-sm" placeholder="£" />
+                            </div>
+                            <input type="range" min="0" max="1000" value="150" data-type="monthly-count-range" class="w-full h-2 bg-zinc-200 rounded-lg appearance-none cursor-pointer dark:bg-zinc-700 accent-black dark:accent-white" />
+                        </div>
+
+                        <!-- Yearly -->
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium">Yearly</label>
+                            <div class="grid grid-cols-[1fr,auto] gap-2">
+                                <input type="number" min="0" value="0" data-type="yearly-count" class="calc-input w-full p-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-sm" placeholder="Vol" />
+                                <input type="number" min="0" value="500" data-type="yearly-price" class="calc-input w-20 p-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-sm" placeholder="£" />
+                            </div>
+                            <input type="range" min="0" max="200" value="0" data-type="yearly-count-range" class="w-full h-2 bg-zinc-200 rounded-lg appearance-none cursor-pointer dark:bg-zinc-700 accent-black dark:accent-white" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- One-offs Column -->
+                <div class="space-y-6">
+                    <h4 class="font-bold text-lg border-b border-zinc-200 dark:border-zinc-800 pb-2">One-offs (Monthly Sales)</h4>
+                    
+                    <div class="space-y-3 md:space-y-4">
+                        <div class="grid grid-cols-[1fr,60px,60px] md:grid-cols-[1fr,80px,80px] gap-2 items-end">
+                            <span class="text-[10px] md:text-xs text-zinc-400 font-mono uppercase">Type</span>
+                            <span class="text-[10px] md:text-xs text-zinc-400 font-mono uppercase text-center">Sales</span>
+                            <span class="text-[10px] md:text-xs text-zinc-400 font-mono uppercase text-center">Price(£)</span>
+                        </div>
+
+                        <!-- Day Pass -->
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium">Day Pass</label>
+                            <div class="grid grid-cols-[1fr,auto] gap-2">
+                                <input type="number" min="0" value="0" data-type="day-count" class="calc-input w-full p-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-sm" placeholder="Vol" />
+                                <input type="number" min="0" value="15" data-type="day-price" class="calc-input w-20 p-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-sm" placeholder="£" />
+                            </div>
+                            <input type="range" min="0" max="1000" value="0" data-type="day-count-range" class="w-full h-2 bg-zinc-200 rounded-lg appearance-none cursor-pointer dark:bg-zinc-700 accent-black dark:accent-white" />
+                        </div>
+                        
+                        <!-- Week Pass -->
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium">Week Pass</label>
+                            <div class="grid grid-cols-[1fr,auto] gap-2">
+                                <input type="number" min="0" value="0" data-type="week-count" class="calc-input w-full p-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-sm" placeholder="Vol" />
+                                <input type="number" min="0" value="40" data-type="week-price" class="calc-input w-20 p-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-sm" placeholder="£" />
+                            </div>
+                            <input type="range" min="0" max="200" value="0" data-type="week-count-range" class="w-full h-2 bg-zinc-200 rounded-lg appearance-none cursor-pointer dark:bg-zinc-700 accent-black dark:accent-white" />
+                        </div>
+
+                        <!-- Punch Card -->
+                        <div class="space-y-1">
+                            <label class="text-sm font-medium">Punch Card (10x)</label>
+                            <div class="grid grid-cols-[1fr,auto] gap-2">
+                                <input type="number" min="0" value="0" data-type="punch-count" class="calc-input w-full p-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-sm" placeholder="Vol" />
+                                <input type="number" min="0" value="120" data-type="punch-price" class="calc-input w-20 p-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-sm" placeholder="£" />
+                            </div>
+                            <input type="range" min="0" max="200" value="0" data-type="punch-count-range" class="w-full h-2 bg-zinc-200 rounded-lg appearance-none cursor-pointer dark:bg-zinc-700 accent-black dark:accent-white" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Output Column -->
+                <div class="flex flex-col justify-center items-center lg:items-end space-y-8 pt-8 lg:pt-0 border-t lg:border-t-0 lg:border-l border-zinc-200 dark:border-zinc-800 pl-0 lg:pl-12">
+                    
+                     <div class="text-center lg:text-right space-y-1">
+                        <p class="text-sm text-zinc-500 uppercase tracking-wider">Estimated Monthly Revenue</p>
+                        <div class="text-3xl font-bold text-zinc-800 dark:text-zinc-200 transition-all duration-300" id="revenue-container">
+                            £<span id="display-revenue">0</span>
+                        </div>
+                    </div>
+
+                    <div class="text-center lg:text-right space-y-2 p-6 bg-zinc-100 dark:bg-zinc-900 rounded-xl w-full">
+                        <p class="text-sm text-zinc-500 uppercase tracking-wider font-bold">Your Monthly Slate Cost</p>
+                        <div class="flex items-baseline justify-center lg:justify-end gap-1 transition-all duration-300" id="cost-container">
+                            <span class="text-4xl font-black tracking-tighter">£</span>
+                            <span id="display-cost" class="text-6xl font-black tracking-tighter">0</span>
+                        </div>
+                        <div class="space-y-1 pt-2 border-t border-zinc-200 dark:border-zinc-800 mt-2">
+                            <div class="flex justify-between text-xs text-zinc-500">
+                                <span>Base Fee:</span>
+                                <span>£<span id="display-base">250</span></span>
+                            </div>
+                            <div class="flex justify-between text-xs text-zinc-500">
+                                <span>Variable Fee:</span>
+                                <span>£<span id="display-variable">0</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<script>
+    // State
+    type PlanType = 'lite' | 'pro';
+    let currentPlan: PlanType = 'pro'; 
+    
+    const plans = {
+        lite: { base: 100, rate: 0.015 },
+        pro: { base: 250, rate: 0.01 }
+    };
+
+    // DOM Elements
+    const liteBtn = document.getElementById('plan-lite');
+    const proBtn = document.getElementById('plan-pro');
+    const inputs = document.querySelectorAll('.calc-input');
+    const ranges = document.querySelectorAll('input[type="range"]');
+    
+    const displayRevenue = document.getElementById('display-revenue');
+    const displayCost = document.getElementById('display-cost');
+    const displayBase = document.getElementById('display-base');
+    const displayVariable = document.getElementById('display-variable');
+
+    const revenueContainer = document.getElementById('revenue-container');
+    const costContainer = document.getElementById('cost-container');
+
+    // Handlers
+    function switchPlan(plan: PlanType) {
+        currentPlan = plan;
+        
+        // Update UI
+        if (plan === 'lite') {
+            liteBtn?.setAttribute('data-selected', 'true');
+            proBtn?.setAttribute('data-selected', 'false');
+        } else {
+            liteBtn?.setAttribute('data-selected', 'false');
+            proBtn?.setAttribute('data-selected', 'true');
+        }
+        
+        calculate();
+    }
+
+    function getInputValue(type: string) {
+        const input = document.querySelector(`input[data-type="${type}"]`) as HTMLInputElement;
+        return input && input.value ? parseFloat(input.value) : 0;
+    }
+
+    function animateValue(element: HTMLElement, container: HTMLElement | null, start: number, end: number, duration: number) {
+        if (start === end) return;
+        
+        // Add blur/fade effect
+        if (container) {
+            container.classList.add('blur-sm', 'opacity-50');
+        }
+        
+        const startTime = performance.now();
+        
+        const update = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Ease out quart
+            const ease = 1 - Math.pow(1 - progress, 4);
+            
+            const current = start + (end - start) * ease;
+            element.textContent = Math.round(current).toLocaleString();
+            
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                // Remove blur/fade effect
+                if (container) {
+                    container.classList.remove('blur-sm', 'opacity-50');
+                }
+            }
+        };
+        
+        requestAnimationFrame(update);
+    }
+
+    let lastRevenue = 0;
+    let lastCost = 0;
+
+    function calculate() {
+        // Subscription Revenue (using 4.33 weeks per month)
+        const weekRev = getInputValue('weekly-count') * getInputValue('weekly-price') * 4.33;
+        const monthRev = getInputValue('monthly-count') * getInputValue('monthly-price');
+        const yearRev = (getInputValue('yearly-count') * getInputValue('yearly-price')) / 12;
+
+        // One-off Revenue
+        const dayRev = getInputValue('day-count') * getInputValue('day-price');
+        const weekPassRev = getInputValue('week-count') * getInputValue('week-price');
+        const punchRev = getInputValue('punch-count') * getInputValue('punch-price');
+
+        // Totals
+        const totalMonthlyRevenue = weekRev + monthRev + yearRev + dayRev + weekPassRev + punchRev;
+        
+        // Fees
+        const plan = plans[currentPlan];
+        const variableFee = totalMonthlyRevenue * plan.rate;
+        const totalCost = plan.base + variableFee;
+
+        // Render with animation
+        if (displayRevenue && Math.round(totalMonthlyRevenue) !== lastRevenue) {
+            animateValue(displayRevenue, revenueContainer, lastRevenue, totalMonthlyRevenue, 500);
+            lastRevenue = Math.round(totalMonthlyRevenue);
+        }
+        
+        if (displayCost && Math.round(totalCost) !== lastCost) {
+            animateValue(displayCost, costContainer, lastCost, totalCost, 500);
+            lastCost = Math.round(totalCost);
+        }
+        
+        if (displayBase) displayBase.textContent = plan.base.toString();
+        if (displayVariable) displayVariable.textContent = Math.round(variableFee).toLocaleString();
+    }
+
+    // Sync inputs and ranges
+    function syncInputs(source: HTMLInputElement) {
+        const type = source.getAttribute('data-type');
+        if (!type) return;
+
+        let targetType;
+        if (type.endsWith('-range')) {
+            targetType = type.replace('-range', '');
+        } else {
+            targetType = type + '-range';
+        }
+
+        const target = document.querySelector(`input[data-type="${targetType}"]`) as HTMLInputElement;
+        
+        if (target) {
+            target.value = source.value;
+        }
+        
+        calculate();
+    }
+
+    // Listeners
+    liteBtn?.addEventListener('click', () => switchPlan('lite'));
+    proBtn?.addEventListener('click', () => switchPlan('pro'));
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', (e) => syncInputs(e.target as HTMLInputElement));
+    });
+    
+    ranges.forEach(range => {
+        range.addEventListener('input', (e) => syncInputs(e.target as HTMLInputElement));
+    });
+
+    // Init
+    calculate();
+
+</script>

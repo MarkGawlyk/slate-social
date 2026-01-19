@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeatureHeader from '../../components/FeatureHeader.astro';
+
+const features = [
+    { title: "Unified Inventory", description: "Track stock levels across online and physical stores." },
+    { title: "Quick Check-in", description: "Scan members in and sell items in the same flow." },
+    { title: "Cafe Support", description: "Dedicated modes for coffee and snack bar operations." }
+];
+---
+
+<Layout title="In-Store PoS - Slate Book">
+  <main class="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
+    <FeatureHeader
+        title="In-Store Point of Sale"
+        description="Fast, reliable, and integrated. Handle everything from day passes to chalk bag sales without leaving the ecosystem."
+        featuresTitle="Retail Made Simple"
+        features={features}
+        icon="💳"
+    />
+  </main>
+</Layout>

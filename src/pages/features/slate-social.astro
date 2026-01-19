@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeatureHeader from '../../components/FeatureHeader.astro';
+
+const features = [
+    { title: "Member Profiles", description: "Let climbers showcase their sends, projects, and progression." },
+    { title: "Beta Sharing", description: "Upload and share videos of how to crack the latest problems." },
+    { title: "Partner Finding", description: "Help members find belay partners or bouldering buddies." }
+];
+---
+
+<Layout title="SLATE Social - Slate Book">
+  <main class="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
+    <FeatureHeader
+        title="SLATE Social"
+        description="The first social network built specifically for your gym's community. Connect, share, and climb together."
+        featuresTitle="Community First"
+        features={features}
+        icon="💬"
+    />
+  </main>
+</Layout>

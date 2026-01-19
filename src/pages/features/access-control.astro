@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeatureHeader from '../../components/FeatureHeader.astro';
+
+const features = [
+    { title: "Turnstile Integration", description: "Works with standard hardware for seamless flow." },
+    { title: "24/7 Access", description: "Enable after-hours access for premium members." },
+    { title: "Real-time Logging", description: "Know exactly who is in your gym at any moment." }
+];
+---
+
+<Layout title="Access Control - Slate Book">
+  <main class="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
+    <FeatureHeader
+        title="Smart Access Control"
+        description="Secure your facility and automate entry. Let your staff focus on community, not turnstiles."
+        featuresTitle="Automated Entry"
+        features={features}
+        icon="🎫"
+    />
+  </main>
+</Layout>
