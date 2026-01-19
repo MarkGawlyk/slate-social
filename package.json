@@ -1,7 +1,7 @@
 {
-  "name": "slate-book-site",
+  "name": "slate-social-site",
   "version": "1.0.0",
-  "description": "Welcome to the Slate Book landing page repository! This is the public-facing website for Slate Book, a comprehensive management system designed specifically for bouldering gyms.",
+  "description": "Welcome to the Slate Social landing page repository! This is the public-facing website for Slate Social, a social media platform engineered for climbing gyms.",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -19,7 +19,7 @@
     "management",
     "astro"
   ],
-  "author": "Slate Book Team",
+  "author": "Slate Social Team",
   "license": "UNLICENSED",
   "devDependencies": {
     "@astrojs/check": "^0.9.6",

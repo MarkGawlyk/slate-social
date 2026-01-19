@@ -10,7 +10,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Slate Book - The Ultimate Bouldering Gym Toolkit" } = Astro.props;
+const { title, description = "Slate Social - Social Media for Climbing Gyms" } = Astro.props;
 ---
 
 <!doctype html>
@@ -25,8 +25,8 @@ const { title, description = "Slate Book - The Ultimate Bouldering Gym Toolkit" 
       // Block search engines on dev/staging environments
       (function() {
         const hostname = window.location.hostname;
-        const isNonProd = hostname.includes('dev.slate-book.com') || 
-                          hostname.includes('staging.slate-book.com') ||
+        const isNonProd = hostname.includes('dev.slatesocial.com') || 
+                          hostname.includes('staging.slatesocial.com') ||
                           hostname === 'localhost' ||
                           hostname === '127.0.0.1';
         
