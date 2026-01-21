@@ -1,0 +1,180 @@
+---
+import FeedLayout from '../layouts/FeedLayout.astro';
+import GymSelector from '../components/GymSelector.astro';
+import FeedSidebar from '../components/FeedSidebar.astro';
+import FeedPost from '../components/FeedPost.astro';
+
+// Mock data for demonstration - would come from Supabase in production
+const posts = [
+  {
+    id: '1',
+    authorName: 'Gym Staff',
+    content: 'New route setting happening this weekend! The entire bouldering area will be refreshed with problems ranging from V0 to V10. Come check out the new challenges on Monday!',
+    timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(), // 2 hours ago
+    isPinned: true,
+    isAnnouncement: true,
+    likeCount: 42,
+    replyCount: 8,
+  },
+  {
+    id: '2',
+    authorName: 'Sarah Chen',
+    authorAvatar: 'https://i.pravatar.cc/150?img=5',
+    content: 'Anyone interested in joining a beginner lead climbing course? Looking to form a group of 4-6 people to split the costs. DM me if interested!',
+    timestamp: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString(), // 5 hours ago
+    likeCount: 15,
+    replyCount: 12,
+  },
+  {
+    id: '3',
+    authorName: 'Mike Rodriguez',
+    authorAvatar: 'https://i.pravatar.cc/150?img=12',
+    content: 'Just sent my first V5! 🎉 Huge thanks to everyone who gave me beta. This community is awesome!',
+    timestamp: new Date(Date.now() - 8 * 60 * 60 * 1000).toISOString(), // 8 hours ago
+    likeCount: 67,
+    replyCount: 23,
+  },
+  {
+    id: '4',
+    authorName: 'Gym Staff',
+    content: 'Reminder: The gym will be closed this Thursday for maintenance. We apologize for any inconvenience.',
+    timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(), // 1 day ago
+    isPinned: false,
+    isAnnouncement: true,
+    likeCount: 8,
+    replyCount: 3,
+  },
+  {
+    id: '5',
+    authorName: 'Alex Turner',
+    authorAvatar: 'https://i.pravatar.cc/150?img=33',
+    content: 'Looking for a belay partner this Saturday morning around 10am. Climbing 5.10-5.11 range. Let me know!',
+    timestamp: new Date(Date.now() - 36 * 60 * 60 * 1000).toISOString(), // 1.5 days ago
+    likeCount: 12,
+    replyCount: 7,
+  },
+];
+
+// Get current selection from URL params or default
+const currentRoom = 'General Announcements'; // In production, would come from route params
+---
+
+<FeedLayout title="Feed - Slate Social">
+  <!-- Gym Selector at top -->
+  <GymSelector />
+  
+  <!-- Main feed area with sidebar -->
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    <FeedSidebar />
+    
+    <!-- Main feed content -->
+    <main class="flex-1 overflow-y-auto bg-zinc-100 dark:bg-black">
+      <div class="max-w-3xl mx-auto p-4 md:p-6 space-y-4">
+        
+        <!-- Feed Header -->
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <h1 class="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white">
+              {currentRoom}
+            </h1>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
+              Announcements and updates from the gym staff
+            </p>
+          </div>
+          
+          <!-- Mobile menu toggle -->
+          <button 
+            id="mobile-menu-toggle"
+            class="md:hidden p-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            aria-label="Toggle menu"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- New Post Card (for groups and writable rooms) -->
+        <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-4">
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-cyan-400 flex items-center justify-center text-white font-bold">
+              U
+            </div>
+            <button 
+              id="new-post-btn"
+              class="flex-1 text-left px-4 py-3 bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-500 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
+            >
+              What's on your mind?
+            </button>
+          </div>
+        </div>
+        
+        <!-- Feed Posts -->
+        <div class="space-y-4">
+          {posts.map(post => (
+            <FeedPost {...post} />
+          ))}
+        </div>
+        
+        <!-- Load More -->
+        <div class="text-center py-8">
+          <button 
+            id="load-more-btn"
+            class="px-6 py-3 bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-900 dark:text-white font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+          >
+            Load More
+          </button>
+        </div>
+        
+      </div>
+    </main>
+  </div>
+</FeedLayout>
+
+<script>
+  const newPostBtn = document.getElementById('new-post-btn');
+  const loadMoreBtn = document.getElementById('load-more-btn');
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  
+  newPostBtn?.addEventListener('click', () => {
+    console.log('Open new post modal');
+    // In production, would open a modal or expand a composer
+    alert('New post composer would open here');
+  });
+  
+  loadMoreBtn?.addEventListener('click', () => {
+    console.log('Load more posts');
+    // In production, would fetch more posts from API
+    loadMoreBtn.textContent = 'Loading...';
+    loadMoreBtn.setAttribute('disabled', 'true');
+    
+    // Simulate loading
+    setTimeout(() => {
+      loadMoreBtn.textContent = 'Load More';
+      loadMoreBtn.removeAttribute('disabled');
+      alert('More posts would be loaded here');
+    }, 1000);
+  });
+  
+  mobileMenuToggle?.addEventListener('click', () => {
+    console.log('Toggle mobile menu');
+    // In production, would show mobile sidebar
+    alert('Mobile menu would toggle here');
+  });
+</script>
+
+<style>
+  /* Ensure main content scrolls properly */
+  main {
+    height: calc(100vh - 64px - 57px); /* viewport - header - gym selector */
+  }
+  
+  @media (max-width: 768px) {
+    main {
+      height: calc(100vh - 64px - 57px);
+    }
+  }
+</style>

@@ -1,0 +1,184 @@
+---
+// Mock data for demonstration - would come from Supabase in production
+const rooms = [
+  { id: '1', name: 'General Announcements', icon: '📢', unread: 3 },
+  { id: '2', name: 'Route Updates', icon: '🧗', unread: 0 },
+  { id: '3', name: 'Events & Competitions', icon: '🏆', unread: 2 },
+  { id: '4', name: 'Community News', icon: '📰', unread: 0 },
+];
+
+const groups = [
+  { id: '1', name: 'Beginner\'s Corner', icon: '🌱', members: 45, unread: 0 },
+  { id: '2', name: 'Competition Team', icon: '💪', members: 23, unread: 5 },
+  { id: '3', name: 'Weekend Warriors', icon: '⛰️', members: 67, unread: 1 },
+  { id: '4', name: 'Training Partners', icon: '🤝', members: 34, unread: 0 },
+  { id: '5', name: 'Outdoor Trips', icon: '🏕️', members: 52, unread: 0 },
+];
+
+// In production, selected item would come from URL/route params
+const selectedType = 'room'; // 'room' or 'group'
+const selectedId = '1';
+---
+
+<aside class="feed-sidebar w-64 border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 overflow-y-auto">
+  <div class="p-4 space-y-6">
+    
+    <!-- Rooms Section -->
+    <div class="space-y-2">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Rooms</h3>
+        <button 
+          class="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
+          title="All rooms are for announcements and official gym messages"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+        </button>
+      </div>
+      
+      {rooms.map(room => (
+        <button
+          data-type="room"
+          data-id={room.id}
+          class={`feed-nav-item w-full text-left px-3 py-2 rounded-lg transition-colors group ${
+            selectedType === 'room' && selectedId === room.id 
+              ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-900 dark:text-purple-100' 
+              : 'hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300'
+          }`}
+        >
+          <div class="flex items-center gap-2">
+            <span class="text-lg">{room.icon}</span>
+            <span class="flex-1 text-sm font-medium truncate">{room.name}</span>
+            {room.unread > 0 && (
+              <span class="flex items-center justify-center min-w-[20px] h-5 px-1.5 bg-purple-600 dark:bg-purple-500 text-white text-xs font-bold rounded-full">
+                {room.unread}
+              </span>
+            )}
+          </div>
+        </button>
+      ))}
+    </div>
+    
+    <!-- Groups Section -->
+    <div class="space-y-2">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Groups</h3>
+        <button 
+          id="create-group-btn"
+          class="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors"
+          title="Create new group"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </button>
+      </div>
+      
+      {groups.map(group => (
+        <button
+          data-type="group"
+          data-id={group.id}
+          class={`feed-nav-item w-full text-left px-3 py-2 rounded-lg transition-colors group ${
+            selectedType === 'group' && selectedId === group.id 
+              ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-900 dark:text-purple-100' 
+              : 'hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300'
+          }`}
+        >
+          <div class="flex items-center gap-2">
+            <span class="text-lg">{group.icon}</span>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-medium truncate">{group.name}</span>
+                {group.unread > 0 && (
+                  <span class="flex items-center justify-center min-w-[20px] h-5 px-1.5 bg-purple-600 dark:bg-purple-500 text-white text-xs font-bold rounded-full">
+                    {group.unread}
+                  </span>
+                )}
+              </div>
+              <span class="text-xs text-zinc-500 dark:text-zinc-400">{group.members} members</span>
+            </div>
+          </div>
+        </button>
+      ))}
+    </div>
+    
+    <!-- Browse All Groups -->
+    <div class="pt-2 border-t border-zinc-200 dark:border-zinc-800">
+      <button 
+        id="browse-groups-btn"
+        class="w-full text-left px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 transition-colors"
+      >
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="text-sm font-medium">Browse all groups</span>
+        </div>
+      </button>
+    </div>
+    
+  </div>
+</aside>
+
+<script>
+  const navItems = document.querySelectorAll('.feed-nav-item');
+  const createGroupBtn = document.getElementById('create-group-btn');
+  const browseGroupsBtn = document.getElementById('browse-groups-btn');
+  
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const type = item.getAttribute('data-type');
+      const id = item.getAttribute('data-id');
+      
+      console.log('Navigate to:', type, id);
+      
+      // In production, this would update the URL or trigger navigation
+      // For now, we'll just log and update localStorage
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('selectedFeedType', type || '');
+        localStorage.setItem('selectedFeedId', id || '');
+      }
+      
+      // Remove active class from all items
+      navItems.forEach(i => {
+        i.classList.remove('bg-purple-100', 'dark:bg-purple-900/30', 'text-purple-900', 'dark:text-purple-100');
+        i.classList.add('hover:bg-zinc-100', 'dark:hover:bg-zinc-800', 'text-zinc-700', 'dark:text-zinc-300');
+      });
+      
+      // Add active class to clicked item
+      item.classList.add('bg-purple-100', 'dark:bg-purple-900/30', 'text-purple-900', 'dark:text-purple-100');
+      item.classList.remove('hover:bg-zinc-100', 'dark:hover:bg-zinc-800', 'text-zinc-700', 'dark:text-zinc-300');
+    });
+  });
+  
+  createGroupBtn?.addEventListener('click', () => {
+    console.log('Create new group');
+    // In production, would open a modal or navigate to create group page
+    alert('Create new group functionality would open here');
+  });
+  
+  browseGroupsBtn?.addEventListener('click', () => {
+    console.log('Browse all groups');
+    // In production, would navigate to groups directory page
+    alert('Browse all groups functionality would open here');
+  });
+</script>
+
+<style>
+  .feed-sidebar {
+    height: calc(100vh - 64px - 57px); /* viewport height - header - gym selector */
+    position: sticky;
+    top: 121px; /* header + gym selector height */
+  }
+  
+  @media (max-width: 768px) {
+    .feed-sidebar {
+      display: none; /* Hide on mobile, would be replaced with mobile nav */
+    }
+  }
+</style>

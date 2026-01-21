@@ -1,0 +1,154 @@
+---
+// Mock data for demonstration - would come from Supabase in production
+const gyms = [
+  { id: '1', name: 'Boulder Peak Climbing', slug: 'boulder-peak' },
+  { id: '2', name: 'Vertical Horizons', slug: 'vertical-horizons' },
+  { id: '3', name: 'Summit Sessions', slug: 'summit-sessions' },
+  { id: '4', name: 'Ascent Gym', slug: 'ascent-gym' },
+];
+
+// In a real implementation, this would be passed from the page or determined from URL/session
+const selectedGymId = '1';
+const selectedGym = gyms.find(g => g.id === selectedGymId) || gyms[0];
+---
+
+<div class="gym-selector-container border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950">
+  <div class="container mx-auto px-4 py-3 max-w-7xl">
+    <div class="flex items-center gap-2">
+      <span class="text-sm font-medium text-zinc-500 dark:text-zinc-400">Gym:</span>
+      <div class="relative">
+        <button 
+          id="gym-selector-btn"
+          class="flex items-center gap-2 px-4 py-2 bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
+        >
+          <span class="font-semibold text-zinc-900 dark:text-white">{selectedGym.name}</span>
+          <svg 
+            id="gym-selector-arrow"
+            xmlns="http://www.w3.org/2000/svg" 
+            width="16" 
+            height="16" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            stroke-width="2" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"
+            class="transition-transform"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        
+        <div 
+          id="gym-selector-dropdown"
+          class="hidden absolute top-full left-0 mt-1 w-64 bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-lg shadow-xl z-50 overflow-hidden"
+        >
+          {gyms.map(gym => (
+            <button
+              data-gym-id={gym.id}
+              data-gym-name={gym.name}
+              class={`gym-option w-full text-left px-4 py-3 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors ${gym.id === selectedGymId ? 'bg-zinc-50 dark:bg-zinc-800 font-semibold' : ''}`}
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-zinc-900 dark:text-white">{gym.name}</span>
+                {gym.id === selectedGymId && (
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="16" 
+                    height="16" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round"
+                    class="text-purple-600 dark:text-purple-400"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                )}
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById('gym-selector-btn');
+  const dropdown = document.getElementById('gym-selector-dropdown');
+  const arrow = document.getElementById('gym-selector-arrow');
+  const options = document.querySelectorAll('.gym-option');
+  
+  let isOpen = false;
+  
+  function toggleDropdown() {
+    isOpen = !isOpen;
+    if (dropdown && arrow) {
+      if (isOpen) {
+        dropdown.classList.remove('hidden');
+        arrow.style.transform = 'rotate(180deg)';
+      } else {
+        dropdown.classList.add('hidden');
+        arrow.style.transform = 'rotate(0deg)';
+      }
+    }
+  }
+  
+  function closeDropdown() {
+    isOpen = false;
+    if (dropdown && arrow) {
+      dropdown.classList.add('hidden');
+      arrow.style.transform = 'rotate(0deg)';
+    }
+  }
+  
+  btn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleDropdown();
+  });
+  
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      const gymId = option.getAttribute('data-gym-id');
+      const gymName = option.getAttribute('data-gym-name');
+      
+      // In production, this would update the URL or make an API call
+      console.log('Selected gym:', gymId, gymName);
+      
+      // Store selection in localStorage
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('selectedGymId', gymId || '');
+      }
+      
+      closeDropdown();
+      
+      // Reload page with new gym (in production, might use client-side routing)
+      // window.location.reload();
+    });
+  });
+  
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (isOpen && !dropdown?.contains(e.target as Node) && e.target !== btn) {
+      closeDropdown();
+    }
+  });
+  
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) {
+      closeDropdown();
+    }
+  });
+</script>
+
+<style>
+  .gym-selector-container {
+    position: sticky;
+    top: 64px; /* Height of header */
+    z-index: 30;
+  }
+</style>
