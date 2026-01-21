@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeatureHeader from '../../components/FeatureHeader.astro';
+
+const features = [
+    { title: "Smart Matching", description: "Find partners based on schedule, skill level, and climbing style." },
+    { title: "Availability Calendar", description: "Share when you're planning to climb and find available partners." },
+    { title: "Safety First", description: "View certification levels and climbing experience before partnering." }
+];
+---
+
+<Layout title="Partner Finder - Slate Social">
+  <main class="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
+    <FeatureHeader
+        title="Partner Finder"
+        description="Help climbers connect to find belayers, project partners, and climbing buddies. Match members based on schedule, skill level, and climbing style. Never climb alone again—find the perfect partner for your next session."
+        featuresTitle="Find Your Match"
+        features={features}
+        icon="🤝"
+    />
+  </main>
+</Layout>

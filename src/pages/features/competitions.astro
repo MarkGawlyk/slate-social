@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeatureHeader from '../../components/FeatureHeader.astro';
+
+const features = [
+    { title: "Real-Time Scoring", description: "Live leaderboards that update as climbers complete problems." },
+    { title: "Multiple Formats", description: "Support for boulder leagues, speed events, and redpoint comps." },
+    { title: "Automatic Results", description: "Instant result sharing and winner announcements." }
+];
+---
+
+<Layout title="Competitions - Slate Social">
+  <main class="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
+    <FeatureHeader
+        title="Competitions"
+        description="Host and manage gym competitions with leaderboards and results. Built-in competition management for boulder leagues, speed climbing events, and informal challenges. Real-time scoring, leaderboards, and automatic result sharing."
+        featuresTitle="Competition Tools"
+        features={features}
+        icon="🏆"
+    />
+  </main>
+</Layout>

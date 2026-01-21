@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeatureHeader from '../../components/FeatureHeader.astro';
+
+const features = [
+    { title: "Quick Polls", description: "Simple yes/no or multiple choice questions for instant feedback." },
+    { title: "Anonymous Surveys", description: "Gather honest opinions without member identification." },
+    { title: "Actionable Insights", description: "Track responses and understand what your community wants." }
+];
+---
+
+<Layout title="Polls & Feedback - Slate Social">
+  <main class="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
+    <FeatureHeader
+        title="Polls & Feedback"
+        description="Gather member opinions on routes, events, and gym improvements. Quick polls and surveys let you understand what your community wants. Vote on comp formats, route preferences, or new amenities."
+        featuresTitle="Listen & Learn"
+        features={features}
+        icon="📊"
+    />
+  </main>
+</Layout>

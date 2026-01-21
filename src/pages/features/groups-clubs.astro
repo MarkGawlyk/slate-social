@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeatureHeader from '../../components/FeatureHeader.astro';
+
+const features = [
+    { title: "Private Group Spaces", description: "Create dedicated areas for training crews and club members." },
+    { title: "Event Planning", description: "Organize outdoor trips, competitions, and social meetups." },
+    { title: "Skill-Based Cohorts", description: "Group beginners, intermediates, and advanced climbers together." }
+];
+---
+
+<Layout title="Groups & Clubs - Slate Social">
+  <main class="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
+    <FeatureHeader
+        title="Groups & Clubs"
+        description="Create and manage climbing clubs, skill groups, and special interest communities. From beginner cohorts to competition teams, groups let members organize around shared interests. Perfect for training crews, outdoor trip planning, and social meetups."
+        featuresTitle="Build Community"
+        features={features}
+        icon="👥"
+    />
+  </main>
+</Layout>

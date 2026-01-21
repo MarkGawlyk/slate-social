@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeatureHeader from '../../components/FeatureHeader.astro';
+
+const features = [
+    { title: "Threaded Discussions", description: "Keep conversations organized with nested replies and topics." },
+    { title: "Announcements", description: "Pin important updates so they're always visible to members." },
+    { title: "Route Beta Sharing", description: "Members can discuss techniques and share tips for tricky problems." }
+];
+---
+
+<Layout title="Message Board - Slate Social">
+  <main class="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
+    <FeatureHeader
+        title="Message Board"
+        description="Central hub for gym-wide discussions, announcements, and community conversation. A digital bulletin board where members can discuss routes, share tips, ask questions, and stay updated on gym news."
+        featuresTitle="Community Hub"
+        features={features}
+        icon="💬"
+    />
+  </main>
+</Layout>

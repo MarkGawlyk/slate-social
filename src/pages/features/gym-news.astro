@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeatureHeader from '../../components/FeatureHeader.astro';
+
+const features = [
+    { title: "Scheduled Posts", description: "Write announcements in advance and publish them at the right time." },
+    { title: "Route Updates", description: "Notify members when new routes are set or old ones are stripped." },
+    { title: "Operating Hours", description: "Keep members informed about holidays, closures, and special hours." }
+];
+---
+
+<Layout title="Gym News - Slate Social">
+  <main class="container mx-auto px-4 py-24 md:py-32 max-w-4xl">
+    <FeatureHeader
+        title="Gym News"
+        description="Opening times, holidays, route updates, and important announcements. Keep your community informed with a dedicated news feed. Schedule announcements, highlight new routes, and ensure members never miss important updates."
+        featuresTitle="Stay Connected"
+        features={features}
+        icon="📰"
+    />
+  </main>
+</Layout>
