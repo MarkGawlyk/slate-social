@@ -81,6 +81,7 @@ Stores posts/messages in rooms and groups.
 | gym_id | uuid | FOREIGN KEY REFERENCES gyms(id) ON DELETE CASCADE, NOT NULL | Associated gym |
 | room_id | uuid | FOREIGN KEY REFERENCES rooms(id) ON DELETE CASCADE | Associated room (if room post) |
 | group_id | uuid | FOREIGN KEY REFERENCES groups(id) ON DELETE CASCADE | Associated group (if group post) |
+| parent_id | uuid | FOREIGN KEY REFERENCES posts(id) ON DELETE CASCADE | Parent post ID for replies/comments |
 | author_id | uuid | NOT NULL | User who created the post |
 | author_name | text | NOT NULL | Cached author name for display |
 | content | text | NOT NULL | Post content |

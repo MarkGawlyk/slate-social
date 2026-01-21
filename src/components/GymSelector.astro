@@ -132,7 +132,8 @@ const selectedGym = gyms.find(g => g.id === selectedGymId) || gyms[0];
   
   // Close dropdown when clicking outside
   document.addEventListener('click', (e) => {
-    if (isOpen && !dropdown?.contains(e.target as Node) && e.target !== btn) {
+    const target = e.target as Node | null;
+    if (isOpen && target && !dropdown?.contains(target) && target !== btn) {
       closeDropdown();
     }
   });

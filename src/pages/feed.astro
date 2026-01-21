@@ -167,14 +167,19 @@ const currentRoom = 'General Announcements'; // In production, would come from r
 </script>
 
 <style>
+  :root {
+    --header-height: 64px;
+    --gym-selector-height: 57px;
+  }
+
   /* Ensure main content scrolls properly */
   main {
-    height: calc(100vh - 64px - 57px); /* viewport - header - gym selector */
+    height: calc(100vh - var(--header-height) - var(--gym-selector-height));
   }
   
   @media (max-width: 768px) {
     main {
-      height: calc(100vh - 64px - 57px);
+      height: calc(100vh - var(--header-height) - var(--gym-selector-height));
     }
   }
 </style>
