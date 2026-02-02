@@ -9,6 +9,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "test": "vitest --passWithNoTests",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
     "deploy:staging": "git tag -f staging && git push origin staging --force",
     "deploy:prod": "git tag -f prod && git push origin prod --force",
     "prepare": "husky"
@@ -23,6 +26,7 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
+    "@playwright/test": "^1.58.1",
     "astro": "^5.16.9",
     "happy-dom": "^20.1.0",
     "husky": "^9.1.7",

@@ -1,26 +1,33 @@
 ---
+const benefits = [
+  { title: "Boost Engagement", desc: "Keep members connected between visits and coming back more often.", icon: "📈" },
+  { title: "Build Community", desc: "Transform casual climbers into loyal, engaged community members.", icon: "🤝" },
+  { title: "Reduce Churn", desc: "Members with social connections are far more likely to renew.", icon: "🔄" },
+  { title: "Tailored for Climbing", desc: "Features designed specifically for how climbing communities work.", icon: "🧗" }
+];
 ---
-<section class="py-24 border-t border-zinc-200 dark:border-zinc-800 fade-in">
-  <div class="container px-4 md:px-6 max-w-5xl mx-auto">
+<section class="py-24 border-t border-zinc-200 dark:border-zinc-800 relative overflow-hidden">
+  <!-- Subtle gradient background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-transparent to-cyan-50/50 dark:from-purple-950/20 dark:via-transparent dark:to-cyan-950/20"></div>
+  
+  <div class="container px-4 md:px-6 max-w-5xl mx-auto relative z-10">
     <div class="grid gap-12 lg:grid-cols-2 items-center">
-      <div class="space-y-4">
-        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl">Why Slate Social?</h2>
-        <p class="text-zinc-500 dark:text-zinc-400">
+      <div class="space-y-4 fade-in">
+        <p class="text-sm font-mono uppercase tracking-wider text-purple-600 dark:text-purple-400">Why Choose Us</p>
+        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Why Slate Social?</h2>
+        <p class="text-zinc-500 dark:text-zinc-400 text-lg">
           Built specifically for climbing gyms—not adapted from generic social tools.
         </p>
       </div>
       <div class="grid gap-6">
-        {[
-          { title: "Boost Engagement", desc: "Keep members connected between visits and coming back more often." },
-          { title: "Build Community", desc: "Transform casual climbers into loyal, engaged community members." },
-          { title: "Reduce Churn", desc: "Members with social connections are far more likely to renew." },
-          { title: "Tailored for Climbing", desc: "Features designed specifically for how climbing communities work." }
-        ].map(benefit => (
-          <div class="flex items-start gap-4">
-            <div class="mt-1 h-2 w-2 rounded-full bg-zinc-900 dark:bg-zinc-50" />
+        {benefits.map((benefit, index) => (
+          <div class="benefit-item flex items-start gap-4 p-4 rounded-xl bg-white/50 dark:bg-zinc-900/50 border border-zinc-200/50 dark:border-zinc-800/50 hover:border-purple-500/30 dark:hover:border-purple-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/5 fade-in" style={`animation-delay: ${index * 0.15}s`}>
+            <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/10 to-cyan-500/10 dark:from-purple-500/20 dark:to-cyan-500/20 flex items-center justify-center text-2xl">
+              {benefit.icon}
+            </div>
             <div>
-              <h3 class="font-bold leading-none">{benefit.title}</h3>
-              <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">{benefit.desc}</p>
+              <h3 class="font-bold text-lg leading-tight">{benefit.title}</h3>
+              <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{benefit.desc}</p>
             </div>
           </div>
         ))}

@@ -1,17 +1,38 @@
 ---
 ---
 <section id="about" class="py-24 md:py-32 bg-white dark:bg-black relative overflow-hidden border-t border-zinc-200 dark:border-zinc-800">
-  <div class="container px-4 md:px-6 mx-auto text-center">
+  <!-- Subtle background pattern -->
+  <div class="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]">
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0); background-size: 40px 40px;"></div>
+  </div>
+  
+  <div class="container px-4 md:px-6 mx-auto text-center relative z-10">
     <div class="space-y-8 max-w-4xl mx-auto">
         <h2 class="text-6xl md:text-9xl font-black tracking-tighter text-black dark:text-white mb-8 opacity-0 blur-enter">
             SLATE SOCIAL
         </h2>
-        <h3 class="text-2xl md:text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-200 fade-in-up delay-1000">
+        <h3 class="text-2xl md:text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-200 fade-in-up stagger-1">
             Social media engineered for climbing gyms.
         </h3>
-        <p class="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl mx-auto opacity-0 fade-in-up delay-1500">
+        <p class="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl mx-auto fade-in-up stagger-2">
             Message boards, groups, clubs, competitions, news, polls, beta sharing, partner finding—all hyper-tailored to how climbing communities actually connect. Part of the Slate ecosystem.
         </p>
+        
+        <!-- Stats counter row -->
+        <div class="grid grid-cols-3 gap-8 pt-12 max-w-xl mx-auto fade-in-up stagger-3" aria-live="polite">
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-black text-black dark:text-white counter" data-target="6" aria-label="6 Core Modules">6</div>
+            <div class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Core Modules</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-black text-black dark:text-white counter" data-target="100" aria-label="100% Climbing Focus">100</div>
+            <div class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">% Climbing Focus</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-black text-black dark:text-white counter" data-target="1" aria-label="1 Platform">1</div>
+            <div class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Platform</div>
+          </div>
+        </div>
     </div>
   </div>
 </section>
@@ -22,16 +43,18 @@
         100% { filter: blur(0); opacity: 1; transform: translateY(0); }
     }
     .blur-enter.is-visible {
-        animation: blur-enter 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        animation: blur-enter 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     
     .fade-in-up {
         opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        transform: translateY(30px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .fade-in-up.delay-1000 { transition-delay: 1.0s; }
-    .fade-in-up.delay-1500 { transition-delay: 1.5s; }
+    
+    .stagger-1 { transition-delay: 0.3s; }
+    .stagger-2 { transition-delay: 0.5s; }
+    .stagger-3 { transition-delay: 0.7s; }
 
     .fade-in-up.is-visible {
         opacity: 1;
@@ -44,10 +67,44 @@
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
+                
+                // Start counter animation for counter elements
+                if (entry.target.classList.contains('counter')) {
+                    animateCounter(entry.target as HTMLElement);
+                }
+                
+                // Start counters within the visible element
+                entry.target.querySelectorAll('.counter').forEach(counter => {
+                    animateCounter(counter as HTMLElement);
+                });
+                
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.3 });
+
+    function animateCounter(element: HTMLElement) {
+        const target = parseInt(element.dataset.target || '0');
+        const duration = 1500;
+        const startTime = performance.now();
+        
+        function update(currentTime: number) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function for smooth animation
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(easeOut * target);
+            
+            element.textContent = current.toString();
+            
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        }
+        
+        requestAnimationFrame(update);
+    }
 
     document.querySelectorAll('.blur-enter, .fade-in-up').forEach(el => observer.observe(el));
 </script>
