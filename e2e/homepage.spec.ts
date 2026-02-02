@@ -45,10 +45,13 @@ test.describe('Homepage', () => {
     const initialDarkMode = await html.evaluate(el => el.classList.contains('dark'));
     
     await darkModeToggle.click();
-    await page.waitForTimeout(100);
     
-    const newDarkMode = await html.evaluate(el => el.classList.contains('dark'));
-    expect(newDarkMode).not.toBe(initialDarkMode);
+    // Wait for the class to change
+    if (initialDarkMode) {
+      await expect(html).not.toHaveClass(/dark/);
+    } else {
+      await expect(html).toHaveClass(/dark/);
+    }
   });
 });
 
@@ -96,29 +99,26 @@ test.describe('Hero Section', () => {
 test.describe('About Section', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/#about');
-    await page.waitForTimeout(1000); // Wait for scroll and animations
+    // Wait for the page to settle after navigation
+    await page.waitForLoadState('domcontentloaded');
   });
 
   test('should display SLATE SOCIAL heading', async ({ page }) => {
-    // Wait for the blur-enter animation to complete
-    await page.waitForTimeout(1500);
     const heading = page.getByRole('heading', { name: 'SLATE SOCIAL', exact: true });
-    await expect(heading).toBeVisible({ timeout: 5000 });
+    // Wait for the heading to become visible (animation may still be running)
+    await expect(heading).toBeVisible({ timeout: 10000 });
   });
 
   test('should display subheading about climbing gyms', async ({ page }) => {
-    await page.waitForTimeout(1500);
     const subheading = page.getByRole('heading', { name: /social media engineered for climbing gyms/i });
-    await expect(subheading).toBeVisible({ timeout: 5000 });
+    await expect(subheading).toBeVisible({ timeout: 10000 });
   });
 
   test('should display stats counters', async ({ page }) => {
-    // Wait for animation
-    await page.waitForTimeout(2000);
-    // Check for the counter elements
-    await expect(page.getByText('Core Modules')).toBeVisible({ timeout: 5000 });
-    await expect(page.getByText('% Climbing Focus')).toBeVisible({ timeout: 5000 });
-    await expect(page.getByText('Platform').first()).toBeVisible({ timeout: 5000 });
+    // Check for the counter label elements (these appear immediately)
+    await expect(page.getByText('Core Modules')).toBeVisible({ timeout: 10000 });
+    await expect(page.getByText('% Climbing Focus')).toBeVisible({ timeout: 10000 });
+    await expect(page.getByText('Platform').first()).toBeVisible({ timeout: 10000 });
   });
 });
 

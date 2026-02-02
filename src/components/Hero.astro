@@ -31,9 +31,15 @@ import { ArrowDown } from 'lucide-astro';
         </p>
         
         <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-snug md:leading-[1.1] selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-black animate-fade-up" style="animation-delay: 0.2s;">
-            The <span class="relative inline-block px-2 md:px-4 before:content-[''] before:absolute before:-inset-0.5 md:before:-inset-1 before:-skew-x-6 before:bg-black before:text-white dark:before:bg-white highlight-box"><span class="relative text-white dark:text-black z-10">Community Hub</span></span><br /> 
+            The 
+            <span class="highlight-text">
+                <span class="relative text-white dark:text-black z-10">Community Hub</span>
+            </span>
+            <br /> 
             for your 
-            <span class="relative inline-block px-2 md:px-4 before:content-[''] before:absolute before:-inset-0.5 md:before:-inset-1 before:-skew-x-6 before:bg-black before:text-white dark:before:bg-white highlight-box"><span class="relative text-white dark:text-black z-10">Climbing Gym</span></span>
+            <span class="highlight-text">
+                <span class="relative text-white dark:text-black z-10">Climbing Gym</span>
+            </span>
         </h1>
     </div>
 
@@ -71,6 +77,44 @@ import { ArrowDown } from 'lucide-astro';
       background-size: 60px 60px;
       mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
       -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+    }
+    
+    /* Highlight text styling for skewed background boxes */
+    .highlight-text {
+      position: relative;
+      display: inline-block;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .highlight-text {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+    
+    .highlight-text::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      transform: skewX(-6deg);
+      background-color: black;
+      z-index: 0;
+    }
+    
+    @media (min-width: 768px) {
+      .highlight-text::before {
+        inset: -4px;
+      }
+    }
+    
+    :global(.dark) .highlight-text::before {
+      background-color: white;
+    }
+    
+    .highlight-text:hover::before {
+      transform: skewX(-6deg) scale(1.02);
     }
     
     /* Grid glow effect */
