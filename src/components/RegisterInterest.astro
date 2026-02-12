@@ -1,21 +1,15 @@
 ---
 ---
 
-<section id="register" class="py-24 relative overflow-hidden bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
-    <!-- Modern grid background -->
-    <div class="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.02]">
-        <div class="absolute inset-0" style="background-image: linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px); background-size: 60px 60px;"></div>
-    </div>
-    
+<section id="register" class="py-24 relative overflow-hidden bg-zinc-50 dark:bg-zinc-950">
     <!-- Background Decor (Subtle matching the hero) -->
-    <div class="absolute inset-0 z-0 opacity-40 pointer-events-none">
-        <div class="absolute top-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-purple-400/20 dark:bg-purple-900/30 blur-[100px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-cyan-400/20 dark:bg-cyan-900/30 blur-[100px]"></div>
+    <div class="absolute inset-0 z-0 opacity-30 pointer-events-none">
+        <div class="absolute top-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-purple-400/20 dark:bg-purple-900/20 blur-[100px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-cyan-400/20 dark:bg-cyan-900/20 blur-[100px]"></div>
     </div>
 
     <div class="container px-4 md:px-6 max-w-4xl mx-auto relative z-10">
-        <div class="text-center space-y-4 mb-12 fade-in">
-            <p class="text-sm font-mono uppercase tracking-wider text-purple-600 dark:text-purple-400">Get Started</p>
+        <div class="text-center space-y-4 mb-12">
             <h2 class="text-3xl md:text-5xl font-black tracking-tighter text-zinc-900 dark:text-white">
                 Join the <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-cyan-600 dark:from-purple-400 dark:to-cyan-400">Beta</span>
             </h2>
@@ -24,7 +18,7 @@
             </p>
         </div>
 
-        <div class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 rounded-2xl p-8 md:p-10 shadow-2xl shadow-purple-500/5 dark:shadow-purple-500/10 fade-in" style="animation-delay: 0.2s;">
+        <div class="bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 rounded-2xl p-8 md:p-10 shadow-xl">
             <!-- 
                  FORM ACTION: 
                  Submits to Supabase via client-side JS
@@ -38,7 +32,7 @@
                             name="name" 
                             id="name" 
                             required
-                            class="w-full px-4 py-3 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all hover:border-purple-300 dark:hover:border-purple-600"
+                            class="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
                             placeholder="Alex Honnold"
                         />
                     </div>
@@ -49,7 +43,7 @@
                             name="gym" 
                             id="gym" 
                             required
-                            class="w-full px-4 py-3 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all hover:border-purple-300 dark:hover:border-purple-600"
+                            class="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
                             placeholder="El Cap Gym"
                         />
                     </div>
@@ -62,7 +56,7 @@
                         name="email" 
                         id="email" 
                         required
-                        class="w-full px-4 py-3 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all hover:border-purple-300 dark:hover:border-purple-600"
+                        class="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
                         placeholder="alex@elcapgym.com"
                     />
                 </div>
@@ -73,24 +67,19 @@
                         name="message" 
                         id="message" 
                         rows="4"
-                        class="w-full px-4 py-3 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all resize-none hover:border-purple-300 dark:hover:border-purple-600"
+                        class="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all resize-none"
                         placeholder="We struggle with..."
                     ></textarea>
                 </div>
 
-                <div id="form-message" class="hidden rounded-xl p-4 text-sm font-medium"></div>
+                <div id="form-message" class="hidden rounded-lg p-4 text-sm font-medium"></div>
 
                 <button 
                     type="submit"
                     id="submit-btn"
-                    class="group w-full py-4 px-6 bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white font-bold text-lg rounded-xl transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                    class="w-full py-4 px-6 bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-200 text-white dark:text-black font-bold text-lg rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    <span class="flex items-center justify-center gap-2">
-                        Register Interest
-                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </span>
+                    Register Interest
                 </button>
             </form>
         </div>
@@ -125,8 +114,7 @@
 
             // Loading state
             submitBtn.disabled = true;
-            const originalContent = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<span class="flex items-center justify-center gap-2"><svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Submitting...</span>';
+            submitBtn.textContent = 'Submitting...';
             
             const formData = new FormData(form);
             const data = {
@@ -152,7 +140,7 @@
                 showMessage('Something went wrong. Please try again later.', 'error');
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = originalContent;
+                submitBtn.textContent = 'Register Interest';
             }
         });
     }
@@ -172,3 +160,6 @@
         messageEl.classList.remove('hidden');
     }
 </script>
+        </div>
+    </div>
+</section>

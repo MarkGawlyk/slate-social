@@ -44,29 +44,21 @@ const features = [
   }
 ];
 ---
-<section id="features" class="py-24 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-950/50">
+<section id="features" class="py-24 border-t border-zinc-200 dark:border-zinc-800 fade-in">
   <div class="container px-4 md:px-6 max-w-5xl mx-auto">
-    <div class="text-center mb-16 fade-in">
-      <p class="text-sm font-mono uppercase tracking-wider text-purple-600 dark:text-purple-400 mb-4">What We Offer</p>
+    <div class="text-center mb-16">
       <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Platform Modules</h2>
-      <p class="mt-4 text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto">Comprehensive tools for modern climbing facilities.</p>
+      <p class="mt-4 text-zinc-500 dark:text-zinc-400">Comprehensive tools for modern climbing facilities.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {features.map((feature, index) => (
         <button 
           data-index={index}
-          class="feature-card group rounded-xl border border-zinc-200 bg-white dark:bg-zinc-900 dark:border-zinc-800 p-6 hover:border-purple-500/50 dark:hover:border-purple-400/50 transition-all duration-300 block text-left w-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 hover:shadow-lg hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:-translate-y-1 fade-in"
-          style={`animation-delay: ${index * 0.1}s`}
+          class="feature-card group rounded-lg border border-zinc-200 bg-transparent p-6 hover:border-zinc-900 dark:border-zinc-800 dark:hover:border-zinc-50 transition-colors block text-left w-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-zinc-500"
         >
-          <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{feature.icon}</div>
-          <h3 class="text-lg font-bold group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">{feature.title}</h3>
-          <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{feature.desc}</p>
-          <div class="mt-4 flex items-center text-sm font-medium text-purple-600 dark:text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">
-            <span>Learn more</span>
-            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </div>
+          <div class="text-4xl mb-4 grayscale opacity-80 group-hover:opacity-100 transition-opacity">{feature.icon}</div>
+          <h3 class="text-lg font-bold">{feature.title}</h3>
+          <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">{feature.desc}</p>
         </button>
       ))}
     </div>
