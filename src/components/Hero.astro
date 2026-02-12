@@ -4,210 +4,140 @@ import { ArrowDown } from 'lucide-astro';
 
 <section class="min-h-screen flex flex-col justify-center items-center relative overflow-hidden bg-zinc-100 dark:bg-zinc-950">
   
-  <!-- Animated Grid Background -->
-  <div class="absolute inset-0 z-0 overflow-hidden">
-    <!-- Base gradient -->
-    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-cyan-500/10 dark:from-purple-900/20 dark:to-cyan-900/20"></div>
-    
-    <!-- Animated gradient orbs -->
-    <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-purple-500/30 dark:bg-purple-600/20 blur-[100px] animate-orb-1"></div>
-    <div class="absolute top-[-10%] right-[-15%] w-[45%] h-[45%] rounded-full bg-cyan-500/25 dark:bg-cyan-600/15 blur-[100px] animate-orb-2"></div>
-    <div class="absolute bottom-[-15%] left-[10%] w-[40%] h-[40%] rounded-full bg-pink-500/20 dark:bg-pink-600/15 blur-[100px] animate-orb-3"></div>
-    <div class="absolute bottom-[-20%] right-[-5%] w-[35%] h-[35%] rounded-full bg-emerald-500/20 dark:bg-emerald-600/15 blur-[100px] animate-orb-4"></div>
-    
-    <!-- Modern Grid Pattern -->
-    <div class="absolute inset-0 hero-grid opacity-[0.15] dark:opacity-[0.08]"></div>
-    
-    <!-- Grid glow effect on intersections -->
-    <div class="absolute inset-0 grid-glow"></div>
+  <!-- Liquid Background (Deepest Layer) -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-purple-400/50 dark:bg-purple-900/60 blur-[80px] md:blur-[120px] animate-fade-in mix-blend-multiply dark:mix-blend-lighten"></div>
+    <div class="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-cyan-400/50 dark:bg-cyan-900/60 blur-[80px] md:blur-[120px] animate-fade-in mix-blend-multiply dark:mix-blend-lighten"></div>
+    <div class="absolute bottom-[-10%] left-[20%] w-[40%] h-[40%] rounded-full bg-pink-400/50 dark:bg-pink-900/60 blur-[80px] md:blur-[120px] animate-fade-in mix-blend-multiply dark:mix-blend-lighten"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-green-300/50 dark:bg-green-800/60 blur-[80px] md:blur-[120px] animate-fade-in mix-blend-multiply dark:mix-blend-lighten"></div>
   </div>
+
+  <!-- Fluid Dot Grid (Canvas) -->
+  <canvas id="dot-canvas" class="absolute inset-0 z-0 pointer-events-none opacity-60 mix-blend-normal dark:mix-blend-screen"></canvas>
 
   <!-- Content (Top Layer) -->
   <div class="container px-4 md:px-6 max-w-6xl mx-auto text-center space-y-12 z-10 relative pointer-events-none">
     
-    <div class="space-y-6 pointer-events-auto hero-content">
-        <p class="text-xs md:text-sm font-mono uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400 animate-fade-up" style="animation-delay: 0.1s;">
+    <div class="space-y-6 pointer-events-auto">
+        <p class="text-xs md:text-sm font-mono uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400">
             Social Media for Climbing Gyms
         </p>
         
-        <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-snug md:leading-[1.1] selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-black animate-fade-up" style="animation-delay: 0.2s;">
-            The 
-            <span class="highlight-text">
-                <span class="relative text-white dark:text-black z-10">Community Hub</span>
-            </span>
-            <br /> 
+        <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-snug md:leading-[1.1] selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-black">
+            The <span class="relative inline-block px-2 md:px-4 before:content-[''] before:absolute before:-inset-0.5 md:before:-inset-1 before:-skew-x-6 before:bg-black before:text-white dark:before:bg-white"><span class="relative text-white dark:text-black z-10">Community Hub</span></span><br /> 
             for your 
-            <span class="highlight-text">
-                <span class="relative text-white dark:text-black z-10">Climbing Gym</span>
-            </span>
+            <span class="relative inline-block px-2 md:px-4 before:content-[''] before:absolute before:-inset-0.5 md:before:-inset-1 before:-skew-x-6 before:bg-black before:text-white dark:before:bg-white"><span class="relative text-white dark:text-black z-10">Climbing Gym</span></span>
         </h1>
     </div>
 
-    <div class="h-16 flex items-center justify-center pointer-events-auto animate-fade-up" style="animation-delay: 0.4s;">
+    <div class="h-16 flex items-center justify-center pointer-events-auto">
         <p class="text-xl md:text-3xl font-mono text-zinc-600 dark:text-zinc-300">
-            Slate Social is <span id="glitch-text" class="text-black dark:text-white font-bold border-b-2 border-zinc-900 dark:border-zinc-100 pb-1 transition-all">loading...</span>
+            Slate Social is <span id="glitch-text" class="text-black dark:text-white font-bold border-b-2 border-zinc-900 dark:border-zinc-100 pb-1">loading...</span>
         </p>
     </div>
 
-    <div class="flex flex-col sm:flex-row gap-6 justify-center pt-8 pointer-events-auto animate-fade-up" style="animation-delay: 0.6s;">
-      <a href="#about" class="group relative min-w-[200px] px-8 py-4 bg-zinc-900 text-white dark:bg-white dark:text-black font-bold overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 active:scale-95 text-sm uppercase tracking-wider inline-flex items-center justify-center rounded-lg">
+    <div class="flex flex-col sm:flex-row gap-6 justify-center pt-8 pointer-events-auto">
+      <a href="#about" class="group relative min-w-[200px] px-8 py-4 bg-zinc-900 text-white dark:bg-white dark:text-black font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 text-sm uppercase tracking-wider inline-flex items-center justify-center">
         <span class="relative z-10 transition-transform duration-300 group-hover:-translate-x-2">Learn More</span>
         <div class="absolute right-8 opacity-0 translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 z-10">
             <ArrowDown class="w-5 h-5" />
         </div>
-        <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+        <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
       </a>
-    </div>
-  </div>
-  
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce-slow">
-    <div class="w-6 h-10 rounded-full border-2 border-zinc-400 dark:border-zinc-600 flex justify-center pt-2">
-      <div class="w-1 h-2 bg-zinc-400 dark:bg-zinc-600 rounded-full animate-scroll-indicator"></div>
     </div>
   </div>
 </section>
 
 <style>
-    /* Modern Grid Pattern */
-    .hero-grid {
-      background-image: 
-        linear-gradient(to right, currentColor 1px, transparent 1px),
-        linear-gradient(to bottom, currentColor 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+    @keyframes fade-in {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
     }
-    
-    /* Highlight text styling for skewed background boxes */
-    .highlight-text {
-      position: relative;
-      display: inline-block;
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-    }
-    
-    @media (min-width: 768px) {
-      .highlight-text {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-    }
-    
-    .highlight-text::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      transform: skewX(-6deg);
-      background-color: black;
-      z-index: 0;
-    }
-    
-    @media (min-width: 768px) {
-      .highlight-text::before {
-        inset: -4px;
-      }
-    }
-    
-    :global(.dark) .highlight-text::before {
-      background-color: white;
-    }
-    
-    .highlight-text:hover::before {
-      transform: skewX(-6deg) scale(1.02);
-    }
-    
-    /* Grid glow effect */
-    .grid-glow {
-      background-image: 
-        radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(34, 211, 238, 0.15) 0%, transparent 40%);
-      animation: glow-shift 8s ease-in-out infinite;
-    }
-    
-    @keyframes glow-shift {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 0.8; }
-    }
-    
-    /* Orb animations */
-    @keyframes orb-1 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -40px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    
-    @keyframes orb-2 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(-40px, 30px) scale(0.95); }
-      66% { transform: translate(20px, -30px) scale(1.05); }
-    }
-    
-    @keyframes orb-3 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(25px, -25px) scale(1.05); }
-      66% { transform: translate(-35px, 15px) scale(0.95); }
-    }
-    
-    @keyframes orb-4 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(-20px, -30px) scale(0.9); }
-      66% { transform: translate(30px, 20px) scale(1.1); }
-    }
-    
-    .animate-orb-1 { animation: orb-1 20s ease-in-out infinite; }
-    .animate-orb-2 { animation: orb-2 25s ease-in-out infinite; }
-    .animate-orb-3 { animation: orb-3 22s ease-in-out infinite; }
-    .animate-orb-4 { animation: orb-4 18s ease-in-out infinite; }
-    
-    /* Content fade-up animation */
-    @keyframes fade-up {
-      from { 
-        opacity: 0; 
-        transform: translateY(30px); 
-      }
-      to { 
-        opacity: 1; 
-        transform: translateY(0); 
-      }
-    }
-    
-    .animate-fade-up {
-      opacity: 0;
-      animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    
-    /* Highlight box subtle animation */
-    .highlight-box::before {
-      transition: transform 0.3s ease;
-    }
-    
-    .highlight-box:hover::before {
-      transform: skewX(-6deg) scale(1.02);
-    }
-    
-    /* Scroll indicator animations */
-    @keyframes bounce-slow {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
-    }
-    
-    .animate-bounce-slow {
-      animation: bounce-slow 2s ease-in-out infinite;
-    }
-    
-    @keyframes scroll-indicator {
-      0% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(6px); }
-    }
-    
-    .animate-scroll-indicator {
-      animation: scroll-indicator 1.5s ease-in-out infinite;
+    .animate-fade-in {
+      animation: fade-in 1s ease-out forwards;
     }
 </style>
 
 <script>
-    // --- Glitch Text Logic ---
+    // --- Fluid Dot Grid Animation ---
+    const canvas = document.getElementById('dot-canvas') as HTMLCanvasElement;
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let width = 0;
+        let height = 0;
+        let dots: { baseX: number; baseY: number; x: number; y: number; phase: number; speed: number }[] = [];
+        const gap = 12; // "Very tight" grid
+        let time = 0;
+
+        const resize = () => {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            
+            // Re-initialize dots
+            dots = [];
+            const cols = Math.ceil(width / gap);
+            const rows = Math.ceil(height / gap);
+            
+            for (let i = 0; i < cols; i++) {
+                for (let j = 0; j < rows; j++) {
+                    // Add random spawn offset
+                    const offsetX = (Math.random() - 0.5) * (gap * 0.7);
+                    const offsetY = (Math.random() - 0.5) * (gap * 0.7);
+                    
+                    dots.push({
+                        baseX: i * gap + offsetX,
+                        baseY: j * gap + offsetY,
+                        x: i * gap + offsetX,
+                        y: j * gap + offsetY,
+                        // Random phase vertical/horizontal
+                        phase: Math.random() * Math.PI * 2,
+                        speed: 0.5 + Math.random() * 0.5,
+                    });
+                }
+            }
+        };
+
+        const animate = () => {
+            if (!ctx) return;
+            
+            // Clear
+            ctx.clearRect(0, 0, width, height);
+
+            // Check dark mode for color
+            const isDark = document.documentElement.classList.contains('dark');
+            ctx.fillStyle = isDark ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.2)';
+
+            time += 0.01;
+
+            dots.forEach(dot => {
+                // Wave motion calculation
+                // Combine large waves with small jitter
+                const waveX = Math.sin(time * dot.speed + dot.baseY * 0.005) * 3;
+                const waveY = Math.cos(time * dot.speed + dot.baseX * 0.005) * 3;
+                
+                // Add a second layer of interference
+                const noise = Math.sin(time * 2 + dot.phase) * 1.5;
+
+                dot.x = dot.baseX + waveX + noise;
+                dot.y = dot.baseY + waveY + noise;
+
+                ctx.beginPath();
+                ctx.arc(dot.x, dot.y, 0.7, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            requestAnimationFrame(animate);
+        };
+
+        window.addEventListener('resize', resize);
+        resize();
+        animate();
+    }
+
+
+    // --- Existing Glitch Text Logic ---
     const phrases = [
         "community groups",
         "gym competitions",
@@ -293,3 +223,33 @@ import { ArrowDown } from 'lucide-astro';
         loop();
     }
 </script>
+
+<style>
+    @keyframes float-0 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        25% { transform: translate(30px, -50px) scale(1.1); }
+        50% { transform: translate(-20px, -100px) scale(0.9); }
+        75% { transform: translate(-40px, -30px) scale(1.05); }
+    }
+    @keyframes float-1 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        25% { transform: translate(-50px, 30px) scale(0.95); }
+        50% { transform: translate(40px, 60px) scale(1.1); }
+        75% { transform: translate(20px, -40px) scale(1); }
+    }
+    @keyframes float-2 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        25% { transform: translate(60px, 40px) scale(1.05); }
+        50% { transform: translate(-30px, -30px) scale(0.9); }
+        75% { transform: translate(-60px, 50px) scale(1.1); }
+    }
+    .animate-float-0 {
+        animation: float-0 ease-in-out infinite;
+    }
+    .animate-float-1 {
+        animation: float-1 ease-in-out infinite;
+    }
+    .animate-float-2 {
+        animation: float-2 ease-in-out infinite;
+    }
+</style>
