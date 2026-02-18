@@ -1,255 +1,931 @@
 ---
-import { ArrowDown } from 'lucide-astro';
 ---
 
-<section class="min-h-screen flex flex-col justify-center items-center relative overflow-hidden bg-zinc-100 dark:bg-zinc-950">
-  
-  <!-- Liquid Background (Deepest Layer) -->
-  <div class="absolute inset-0 z-0">
-    <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-purple-400/50 dark:bg-purple-900/60 blur-[80px] md:blur-[120px] animate-fade-in mix-blend-multiply dark:mix-blend-lighten"></div>
-    <div class="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-cyan-400/50 dark:bg-cyan-900/60 blur-[80px] md:blur-[120px] animate-fade-in mix-blend-multiply dark:mix-blend-lighten"></div>
-    <div class="absolute bottom-[-10%] left-[20%] w-[40%] h-[40%] rounded-full bg-pink-400/50 dark:bg-pink-900/60 blur-[80px] md:blur-[120px] animate-fade-in mix-blend-multiply dark:mix-blend-lighten"></div>
-    <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-green-300/50 dark:bg-green-800/60 blur-[80px] md:blur-[120px] animate-fade-in mix-blend-multiply dark:mix-blend-lighten"></div>
+<section class="hero">
+  <div class="hero-backdrop" aria-hidden="true">
+    <span class="hero-glow glow-1"></span>
+    <span class="hero-glow glow-2"></span>
+    <span class="hero-glow glow-3"></span>
+    <span class="hero-gridlines"></span>
   </div>
 
-  <!-- Fluid Dot Grid (Canvas) -->
-  <canvas id="dot-canvas" class="absolute inset-0 z-0 pointer-events-none opacity-60 mix-blend-normal dark:mix-blend-screen"></canvas>
-
-  <!-- Content (Top Layer) -->
-  <div class="container px-4 md:px-6 max-w-6xl mx-auto text-center space-y-12 z-10 relative pointer-events-none">
-    
-    <div class="space-y-6 pointer-events-auto">
-        <p class="text-xs md:text-sm font-mono uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400">
-            Social Media for Climbing Gyms
-        </p>
-        
-        <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-snug md:leading-[1.1] selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-black">
-            The <span class="relative inline-block px-2 md:px-4 before:content-[''] before:absolute before:-inset-0.5 md:before:-inset-1 before:-skew-x-6 before:bg-black before:text-white dark:before:bg-white"><span class="relative text-white dark:text-black z-10">Community Hub</span></span><br /> 
-            for your 
-            <span class="relative inline-block px-2 md:px-4 before:content-[''] before:absolute before:-inset-0.5 md:before:-inset-1 before:-skew-x-6 before:bg-black before:text-white dark:before:bg-white"><span class="relative text-white dark:text-black z-10">Climbing Gym</span></span>
+  <div class="hero-content">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Social Media for Climbing Gyms</p>
+        <h1 class="hero-title">
+          The community board your members actually use.
         </h1>
-    </div>
-
-    <div class="h-16 flex items-center justify-center pointer-events-auto">
-        <p class="text-xl md:text-3xl font-mono text-zinc-600 dark:text-zinc-300">
-            Slate Social is <span id="glitch-text" class="text-black dark:text-white font-bold border-b-2 border-zinc-900 dark:border-zinc-100 pb-1">loading...</span>
+        <p class="hero-lede">
+          Slate Social brings posts, comps, beta, and partner-finding into one clean feed,
+          built for busy front desks and stoked members.
         </p>
-    </div>
-
-    <div class="flex flex-col sm:flex-row gap-6 justify-center pt-8 pointer-events-auto">
-      <a href="#about" class="group relative min-w-[200px] px-8 py-4 bg-zinc-900 text-white dark:bg-white dark:text-black font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 text-sm uppercase tracking-wider inline-flex items-center justify-center">
-        <span class="relative z-10 transition-transform duration-300 group-hover:-translate-x-2">Learn More</span>
-        <div class="absolute right-8 opacity-0 translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 z-10">
-            <ArrowDown class="w-5 h-5" />
+        <div class="hero-cta">
+          <a class="hero-btn primary" href="#register">Request early access</a>
+          <a class="hero-btn secondary" href="#features">See features</a>
         </div>
-        <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-      </a>
+        <div class="hero-pills">
+          <span>Events</span>
+          <span>Partner Finder</span>
+          <span>Route Beta</span>
+          <span>Gym Polls</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-perspective">
+          <div class="hero-board">
+            <svg class="hero-paths" viewBox="0 0 600 760" aria-hidden="true">
+              <path d="M80 210 C160 240, 220 260, 290 320" />
+              <path d="M500 260 C420 300, 380 360, 320 420" />
+              <path d="M160 540 C220 500, 320 520, 430 560" />
+            </svg>
+
+            <article class="glass-card card-poll">
+              <div class="card-header">
+                <span class="card-tag">Poll</span>
+                <span class="card-meta">214 votes</span>
+              </div>
+              <h3 class="card-title">Best session time for bouldering?</h3>
+              <div class="poll-item">
+                <span>6:00 pm</span>
+                <span class="poll-bar"><span style="width: 62%"></span></span>
+              </div>
+              <div class="poll-item">
+                <span>7:30 pm</span>
+                <span class="poll-bar"><span style="width: 38%"></span></span>
+              </div>
+              <button class="card-action">Vote</button>
+            </article>
+
+            <article class="glass-card card-notice">
+              <div class="card-header">
+                <span class="card-tag">Notice</span>
+                <span class="card-meta">Today · 9:20am</span>
+              </div>
+              <h3 class="card-title"><span class="type-line">Auto-belay inspection</span></h3>
+              <p class="card-body">East wall routes closed until 11am. Staff on deck for check-in.</p>
+              <div class="card-footer">Tap to acknowledge</div>
+            </article>
+
+            <article class="glass-card card-post">
+              <div class="card-header">
+                <span class="card-tag">Climb Post</span>
+                <span class="card-meta">Beta</span>
+              </div>
+              <div class="post-row">
+                <span class="avatar"></span>
+                <div>
+                  <p class="post-name">Maya T.</p>
+                  <p class="post-subtitle">Yellow V5 · right foot flag</p>
+                </div>
+              </div>
+              <div class="post-image">
+                <img src="/post-image.webp" alt="Climb beta snapshot" loading="lazy" />
+              </div>
+              <p class="card-body">Frame from yesterday’s send. Feet stay quiet, hips close on the bump.</p>
+              <div class="chip-row">
+                <span>Wall 3</span>
+                <span>New set</span>
+              </div>
+            </article>
+
+            <article class="glass-card card-log">
+              <div class="card-header">
+                <span class="card-tag">Climb Log</span>
+                <span class="card-meta">Week to date</span>
+              </div>
+              <h3 class="card-title">Send stack</h3>
+              <ul class="log-list">
+                <li><span>V4 · Granite Arete</span><span class="log-tag">Flash</span></li>
+                <li><span>5.11a · Long Traverse</span><span class="log-tag">Redpoint</span></li>
+                <li><span>V6 · Chalk Talk</span><span class="log-tag">Project</span></li>
+              </ul>
+            </article>
+
+            <article class="glass-card card-comp">
+              <div class="card-header">
+                <span class="card-tag">Comp Sheet</span>
+                <span class="card-meta">Finals</span>
+              </div>
+              <h3 class="card-title">Top 5 standings</h3>
+              <div class="table">
+                <div>
+                  <span>1</span>
+                  <span class="rank-name"><span class="crown" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" role="presentation">
+                      <path d="M3 7l4 4 5-6 5 6 4-4v9H3V7zm0 11h18v2H3v-2z" />
+                    </svg>
+                  </span>J. Lin</span>
+                  <span>97</span>
+                </div>
+                <div><span>2</span><span>R. Patel</span><span>92</span></div>
+                <div><span>3</span><span>K. Diaz</span><span>90</span></div>
+                <div><span>4</span><span>S. Park</span><span>88</span></div>
+                <div><span>5</span><span>M. Ross</span><span>85</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-    @keyframes fade-in {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap');
+
+  .hero {
+    --hero-bg: #f4f5f7;
+    --hero-ink: #0b0f19;
+    --hero-muted: #475569;
+    --hero-accent: #111827;
+    --hero-accent-2: #64748b;
+    --hero-surface: rgba(255, 255, 255, 0.9);
+    --hero-outline: rgba(15, 23, 42, 0.12);
+    --hero-shadow: rgba(15, 23, 42, 0.2);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    padding: 7rem 0 6rem;
+    background: radial-gradient(circle at top left, #ffffff, var(--hero-bg) 45%);
+    color: var(--hero-ink);
+  }
+
+  :global(.dark) .hero {
+    --hero-bg: #0a0b0f;
+    --hero-ink: #f8fafc;
+    --hero-muted: #94a3b8;
+    --hero-accent: #e2e8f0;
+    --hero-accent-2: #64748b;
+    --hero-surface: rgba(11, 18, 32, 0.9);
+    --hero-outline: rgba(226, 232, 240, 0.2);
+    --hero-shadow: rgba(15, 23, 42, 0.6);
+    background: radial-gradient(circle at top left, #0f172a, var(--hero-bg) 45%);
+  }
+
+  .hero-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero-glow {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(80px);
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+  }
+
+  :global(.dark) .hero-glow {
+    mix-blend-mode: screen;
+    opacity: 0.35;
+  }
+
+  .glow-1 {
+    width: 420px;
+    height: 420px;
+    top: -120px;
+    left: -120px;
+    background: #1f2937;
+  }
+
+  .glow-2 {
+    width: 380px;
+    height: 380px;
+    bottom: -160px;
+    right: -80px;
+    background: #64748b;
+  }
+
+  .glow-3 {
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    left: 55%;
+    background: #0f172a;
+  }
+
+  .hero-gridlines {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+    background-size: 140px 140px;
+    opacity: 0.25;
+  }
+
+  :global(.dark) .hero-gridlines {
+    background-image: linear-gradient(to right, rgba(226, 232, 240, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(226, 232, 240, 0.06) 1px, transparent 1px);
+    opacity: 0.18;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(1150px, 92vw);
+    margin: 0 auto;
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  }
+
+  .hero-grid {
+    display: grid;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-copy {
+    text-align: left;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--hero-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    font-family: 'Syne', 'Space Grotesk', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.7rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-lede {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--hero-muted);
+    max-width: 32rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0 1.5rem;
+  }
+
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .hero-btn.primary {
+    background: var(--hero-ink);
+    color: var(--hero-bg);
+    box-shadow: 0 12px 30px var(--hero-shadow);
+  }
+
+  :global(.dark) .hero-btn.primary {
+    background: var(--hero-accent);
+    color: #0b0f19;
+  }
+
+  .hero-btn.secondary {
+    border: 1px solid var(--hero-outline);
+    color: var(--hero-ink);
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(8px);
+  }
+
+  :global(.dark) .hero-btn.secondary {
+    background: rgba(15, 23, 42, 0.55);
+  }
+
+  .hero-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .hero-pills span {
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background: var(--hero-surface);
+    border: 1px solid var(--hero-outline);
+    font-size: 0.85rem;
+    color: var(--hero-ink);
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-perspective {
+    perspective: 1600px;
+    perspective-origin: 75% 45%;
+  }
+
+  .hero-board {
+    position: relative;
+    width: min(520px, 92vw);
+    height: min(700px, 120vw);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    transform-style: preserve-3d;
+    transform: rotateX(15deg) rotateY(20deg) rotateZ(2deg);
+    transition: transform 0.6s ease;
+  }
+
+  .hero-board:hover {
+    transform: rotateX(12deg) rotateY(16deg) rotateZ(1deg);
+  }
+
+  .hero-paths {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    stroke: rgba(15, 23, 42, 0.2);
+    stroke-width: 2;
+    fill: none;
+  }
+
+  :global(.dark) .hero-paths {
+    stroke: rgba(226, 232, 240, 0.22);
+  }
+
+  .glass-card {
+    --card-depth: 32px;
+    --card-tilt: 0deg;
+    position: relative;
+    padding: 1rem 1.1rem;
+    border-radius: 18px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid var(--hero-outline);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.16);
+    backdrop-filter: blur(12px);
+    transform: translateZ(var(--card-depth)) rotateZ(var(--card-tilt));
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  :global(.dark) .glass-card {
+    background: rgba(11, 18, 32, 0.72);
+    border-color: rgba(226, 232, 240, 0.16);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.4), transparent 60%);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .glass-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  :global(.dark) .glass-card::before {
+    background: linear-gradient(120deg, rgba(226, 232, 240, 0.1), transparent 60%);
+    opacity: 0.35;
+  }
+
+  :global(.dark) .glass-card::after {
+    background-image: linear-gradient(to right, rgba(226, 232, 240, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(226, 232, 240, 0.06) 1px, transparent 1px);
+    opacity: 0.2;
+  }
+
+  .glass-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .glass-card:hover,
+  .glass-card:focus-within {
+    transform: translateZ(calc(var(--card-depth) + 22px)) translateY(-6px) rotateZ(0deg);
+    box-shadow: 0 28px 55px rgba(15, 23, 42, 0.22);
+  }
+
+  .card-notice {
+    animation: notice-pulse 6s ease-in-out infinite;
+  }
+
+  .card-notice::after {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.4);
+    box-shadow: 0 0 0 0 rgba(15, 23, 42, 0.3);
+    animation: ping 2.6s ease-out infinite;
+  }
+
+  :global(.dark) .card-notice::after {
+    background: rgba(226, 232, 240, 0.6);
+    box-shadow: 0 0 0 0 rgba(226, 232, 240, 0.4);
+  }
+
+  .card-notice:hover {
+    animation: notice-buzz 0.35s ease;
+  }
+
+  .type-line {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid rgba(15, 23, 42, 0.35);
+    padding-right: 0.2rem;
+    width: 0;
+    animation: type-line 3s steps(22) 0.6s forwards, caret 1s step-end infinite;
+  }
+
+  :global(.dark) .type-line {
+    border-right-color: rgba(226, 232, 240, 0.5);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--hero-muted);
+    margin-bottom: 0.6rem;
+  }
+
+  .card-tag {
+    font-weight: 700;
+  }
+
+  .card-meta {
+    letter-spacing: 0.12em;
+  }
+
+  .card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.45rem;
+  }
+
+  .card-body {
+    font-size: 0.78rem;
+    color: var(--hero-muted);
+    line-height: 1.5;
+  }
+
+  .card-footer {
+    margin-top: 0.8rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--hero-ink);
+  }
+
+  .card-action {
+    margin-top: 0.8rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--hero-outline);
+    background: transparent;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--hero-ink);
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+
+  .card-action:hover {
+    background: rgba(15, 23, 42, 0.06);
+  }
+
+  :global(.dark) .card-action:hover {
+    background: rgba(226, 232, 240, 0.08);
+  }
+
+  .poll-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.75rem;
+    color: var(--hero-muted);
+    margin-top: 0.45rem;
+  }
+
+  .poll-bar {
+    flex: 1;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+  }
+
+  :global(.dark) .poll-bar {
+    background: rgba(226, 232, 240, 0.12);
+  }
+
+  .poll-bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--hero-ink), var(--hero-accent-2));
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: poll-fill 1.8s ease forwards;
+  }
+
+  .card-poll .poll-item:nth-of-type(2) .poll-bar span {
+    animation-delay: 0.2s;
+  }
+
+  .card-poll:hover .poll-bar span {
+    transform: scaleX(1.02);
+  }
+
+  .post-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .post-image {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--hero-outline);
+    background: rgba(15, 23, 42, 0.04);
+    margin-bottom: 0.6rem;
+  }
+
+  :global(.dark) .post-image {
+    background: rgba(226, 232, 240, 0.06);
+  }
+
+  .post-image img {
+    display: block;
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .card-post:hover .post-image img {
+    transform: scale(1.04);
+  }
+
+  .avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0b0f19, #64748b);
+  }
+
+  .post-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .post-subtitle {
+    font-size: 0.7rem;
+    color: var(--hero-muted);
+  }
+
+  .chip-row {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: 0.7rem;
+  }
+
+  .chip-row span {
+    font-size: 0.65rem;
+    border: 1px solid var(--hero-outline);
+    border-radius: 999px;
+    padding: 0.18rem 0.55rem;
+    color: var(--hero-muted);
+  }
+
+  .log-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.6rem 0 0;
+    display: grid;
+    gap: 0.45rem;
+    font-size: 0.75rem;
+    color: var(--hero-muted);
+  }
+
+  .log-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(6px);
+    animation: log-in 0.6s ease forwards;
+  }
+
+  .log-list li:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+
+  .log-list li:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+
+  .log-list li:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  .log-tag {
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid var(--hero-outline);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--hero-ink);
+  }
+
+  .table {
+    display: grid;
+    gap: 0.35rem;
+    margin-top: 0.6rem;
+    font-size: 0.75rem;
+    color: var(--hero-muted);
+  }
+
+  .table div {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--hero-outline);
+  }
+
+  .table div:last-child {
+    border-bottom: none;
+  }
+
+  .table div:first-child {
+    color: var(--hero-ink);
+    font-weight: 600;
+  }
+
+  .rank-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .crown {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.08);
+  }
+
+  :global(.dark) .crown {
+    background: rgba(226, 232, 240, 0.1);
+  }
+
+  .crown svg {
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+  }
+
+  .crown {
+    animation: crown-float 3s ease-in-out infinite;
+  }
+
+  .card-poll {
+    grid-column: 1 / span 6;
+    grid-row: 2 / span 4;
+    --card-depth: 40px;
+    --card-tilt: -2deg;
+  }
+
+  .card-notice {
+    grid-column: 7 / span 6;
+    grid-row: 1 / span 4;
+    --card-depth: 46px;
+    --card-tilt: 2deg;
+  }
+
+  .card-post {
+    grid-column: 2 / span 6;
+    grid-row: 6 / span 4;
+    --card-depth: 34px;
+    --card-tilt: 1deg;
+  }
+
+  .card-log {
+    grid-column: 8 / span 5;
+    grid-row: 6 / span 4;
+    --card-depth: 36px;
+    --card-tilt: -3deg;
+  }
+
+  .card-comp {
+    grid-column: 4 / span 7;
+    grid-row: 10 / span 3;
+    --card-depth: 42px;
+    --card-tilt: 0deg;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .animate-fade-in {
-      animation: fade-in 1s ease-out forwards;
+  }
+
+  @media (max-width: 960px) {
+    .hero-board {
+      transform: rotateX(10deg) rotateY(12deg) rotateZ(1deg);
     }
-</style>
+  }
 
-<script>
-    // --- Fluid Dot Grid Animation ---
-    const canvas = document.getElementById('dot-canvas') as HTMLCanvasElement;
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        let width = 0;
-        let height = 0;
-        let dots: { baseX: number; baseY: number; x: number; y: number; phase: number; speed: number }[] = [];
-        const gap = 12; // "Very tight" grid
-        let time = 0;
-
-        const resize = () => {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
-            
-            // Re-initialize dots
-            dots = [];
-            const cols = Math.ceil(width / gap);
-            const rows = Math.ceil(height / gap);
-            
-            for (let i = 0; i < cols; i++) {
-                for (let j = 0; j < rows; j++) {
-                    // Add random spawn offset
-                    const offsetX = (Math.random() - 0.5) * (gap * 0.7);
-                    const offsetY = (Math.random() - 0.5) * (gap * 0.7);
-                    
-                    dots.push({
-                        baseX: i * gap + offsetX,
-                        baseY: j * gap + offsetY,
-                        x: i * gap + offsetX,
-                        y: j * gap + offsetY,
-                        // Random phase vertical/horizontal
-                        phase: Math.random() * Math.PI * 2,
-                        speed: 0.5 + Math.random() * 0.5,
-                    });
-                }
-            }
-        };
-
-        const animate = () => {
-            if (!ctx) return;
-            
-            // Clear
-            ctx.clearRect(0, 0, width, height);
-
-            // Check dark mode for color
-            const isDark = document.documentElement.classList.contains('dark');
-            ctx.fillStyle = isDark ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.2)';
-
-            time += 0.01;
-
-            dots.forEach(dot => {
-                // Wave motion calculation
-                // Combine large waves with small jitter
-                const waveX = Math.sin(time * dot.speed + dot.baseY * 0.005) * 3;
-                const waveY = Math.cos(time * dot.speed + dot.baseX * 0.005) * 3;
-                
-                // Add a second layer of interference
-                const noise = Math.sin(time * 2 + dot.phase) * 1.5;
-
-                dot.x = dot.baseX + waveX + noise;
-                dot.y = dot.baseY + waveY + noise;
-
-                ctx.beginPath();
-                ctx.arc(dot.x, dot.y, 0.7, 0, Math.PI * 2);
-                ctx.fill();
-            });
-
-            requestAnimationFrame(animate);
-        };
-
-        window.addEventListener('resize', resize);
-        resize();
-        animate();
+  @media (max-width: 720px) {
+    .hero {
+      padding: 6rem 0 5rem;
     }
 
+    .hero-copy {
+      text-align: center;
+    }
 
-    // --- Existing Glitch Text Logic ---
-    const phrases = [
-        "community groups",
-        "gym competitions",
-        "club management",
-        "member polls",
-        "beta sharing",
-        "partner finding",
-        "your community hub"
-    ];
-    
-    
-    const el = document.getElementById('glitch-text');
+    .hero-lede {
+      margin: 0 auto;
+    }
 
-    const chars = '!<>-_\\/[]{}—=+*^?#________';
-    
-    let counter = 0;
-    
-    const nextPhrase = () => {
-        counter = (counter + 1) % phrases.length;
-        return phrases[counter];
-    };
-    
-    const scramble = async (element: HTMLElement, newText: string) => {
-        const oldText = element.innerText;
-        const length = Math.max(oldText.length, newText.length);
-        const promise = new Promise<void>((resolve) => {
-            let frame = 0;
-            const queue: { from: string, to: string, start: number, end: number }[] = [];
-            
-            for (let i = 0; i < length; i++) {
-                const from = oldText[i] || '';
-                const to = newText[i] || '';
-                const start = Math.floor(Math.random() * 15);
-                const end = start + Math.floor(Math.random() * 15);
-                queue.push({ from, to, start, end });
-            }
-            
-            const update = () => {
-               let output = '';
-               let complete = 0;
-               
-               for (let i = 0; i < length; i++) {
-                   const { from, to, start, end } = queue[i];
-                   let char = from;
-                   
-                   if (frame >= end) {
-                       char = to;
-                       complete++;
-                   } else if (frame >= start) {
-                       char = chars[Math.floor(Math.random() * chars.length)];
-                   }
-                   
-                   output += char;
-               }
-               
-               element.innerText = output;
-               
-               if (complete === length) {
-                   resolve();
-               } else {
-                   frame++;
-                   requestAnimationFrame(update);
-               }
-            };
-            
-            update();
-        });
-        return promise;
-    };
-    
-    const loop = async () => {
-        while(true) {
-            await new Promise(r => setTimeout(r, 3000)); // Wait before changing
-            if (el) {
-                await scramble(el, nextPhrase());
-            }
-        }
-    };
-    
-    // Start loop
-    if (el) {
-        el.innerText = phrases[0];
-        loop();
+    .hero-cta {
+      justify-content: center;
     }
-</script>
 
-<style>
-    @keyframes float-0 {
-        0%, 100% { transform: translate(0, 0) scale(1); }
-        25% { transform: translate(30px, -50px) scale(1.1); }
-        50% { transform: translate(-20px, -100px) scale(0.9); }
-        75% { transform: translate(-40px, -30px) scale(1.05); }
+    .hero-pills {
+      justify-content: center;
     }
-    @keyframes float-1 {
-        0%, 100% { transform: translate(0, 0) scale(1); }
-        25% { transform: translate(-50px, 30px) scale(0.95); }
-        50% { transform: translate(40px, 60px) scale(1.1); }
-        75% { transform: translate(20px, -40px) scale(1); }
+
+    .hero-board {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(18, 1fr);
+      height: min(820px, 190vw);
     }
-    @keyframes float-2 {
-        0%, 100% { transform: translate(0, 0) scale(1); }
-        25% { transform: translate(60px, 40px) scale(1.05); }
-        50% { transform: translate(-30px, -30px) scale(0.9); }
-        75% { transform: translate(-60px, 50px) scale(1.1); }
+
+    .card-notice {
+      grid-column: 1 / -1;
+      grid-row: 1 / span 4;
     }
-    .animate-float-0 {
-        animation: float-0 ease-in-out infinite;
+
+    .card-poll {
+      grid-column: 1 / -1;
+      grid-row: 5 / span 4;
     }
-    .animate-float-1 {
-        animation: float-1 ease-in-out infinite;
+
+    .card-post {
+      grid-column: 1 / -1;
+      grid-row: 9 / span 4;
     }
-    .animate-float-2 {
-        animation: float-2 ease-in-out infinite;
+
+    .card-log {
+      grid-column: 1 / -1;
+      grid-row: 13 / span 3;
     }
+
+    .card-comp {
+      grid-column: 1 / -1;
+      grid-row: 16 / span 3;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero-board {
+      width: min(460px, 94vw);
+      height: min(620px, 150vw);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-board,
+    .glass-card,
+    .hero-btn {
+      transition: none;
+    }
+
+    .glass-card,
+    .card-notice,
+    .poll-bar span,
+    .log-list li,
+    .crown,
+    .type-line {
+      animation: none;
+    }
+  }
+
+  @keyframes poll-fill {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes log-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes crown-float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+  }
+
+  @keyframes notice-pulse {
+    0%, 100% {
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.16);
+    }
+    50% {
+      box-shadow: 0 26px 50px rgba(15, 23, 42, 0.2);
+    }
+  }
+
+  @keyframes notice-buzz {
+    0% {
+      transform: translateZ(var(--card-depth)) rotateZ(var(--card-tilt));
+    }
+    30% {
+      transform: translateZ(var(--card-depth)) rotateZ(0.8deg);
+    }
+    60% {
+      transform: translateZ(var(--card-depth)) rotateZ(-0.8deg);
+    }
+    100% {
+      transform: translateZ(var(--card-depth)) rotateZ(var(--card-tilt));
+    }
+  }
+
+  @keyframes ping {
+    0% {
+      box-shadow: 0 0 0 0 rgba(15, 23, 42, 0.3);
+      opacity: 1;
+    }
+    100% {
+      box-shadow: 0 0 0 12px rgba(15, 23, 42, 0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes type-line {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  @keyframes caret {
+    0%, 100% {
+      border-color: transparent;
+    }
+    50% {
+      border-color: inherit;
+    }
+  }
 </style>

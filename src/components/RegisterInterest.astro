@@ -87,13 +87,13 @@
 </section>
 
 <script>
-    import { createClient } from '@supabase/supabase-js';
+    import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
     // Initialize Supabase client
     const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
     const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
 
-    let supabase;
+    let supabase: SupabaseClient<any, "public", "public", any, any>;
     if (supabaseUrl && supabaseKey) {
         supabase = createClient(supabaseUrl, supabaseKey);
     }
